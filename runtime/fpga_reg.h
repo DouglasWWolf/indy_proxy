@@ -240,6 +240,17 @@
 
 
 //
+// Register:    REG_CHIP_RESET
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip reset state
+//              1 = The sensor chip is held in reset
+//              0 = The sensor chip reset is released
+//
+#define REG_CHIP_RESET                                               0x0000000000001208ULL
+
+
+//
 // Register:    REG_CHIP_PWR_ADC
 // Size:        32-bits
 // Type:        Read only

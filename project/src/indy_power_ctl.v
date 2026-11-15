@@ -36,7 +36,7 @@ module indy_power_ctl #
     output reg chip_vddio, chip_vdd, chip_vddlvds, chip_vdda,
 
     // The reset pin for the sensor chip
-    output reg chip_reset_n,
+    output chip_reset_n,
 
     // This is an active-low output enable for the level-translator
     // that does voltage translation between the FPGA and sensor-chip
@@ -95,6 +95,13 @@ localparam REG_CHIP_POWER_CTL    = 0;
     @rtype    ro
 */
 localparam REG_CHIP_POWER_STATE  = 1;
+
+/*
+    @register Sensor chip reset state
+    @rdesc    1 = The sensor chip is held in reset
+    @rdesc    0 = The sensor chip reset is released
+*/
+localparam REG_CHIP_RESET = 2;
 //==========================================================================
 
 
@@ -136,14 +143,16 @@ localparam ONE_MS = FREQ_HZ / 1000;
 // Constants for driving the various chip pins
 localparam POWER_OFF = 0;
 localparam POWER_ON  = 1;
-localparam CHIP_RESET_ASSERTED = 0;
-localparam CHIP_RESET_DEASSERTED = 1;
 localparam LEVELSHIFT_ENABLED  = 0;
 localparam LEVELSHIFT_DISABLED = 1;
 
 reg chip_power_ctl;
 reg chip_power_state;
 reg[4:0] cpsm_state;
+
+// output port "chip_reset_n" is 1 if and only if these are both 1
+reg[1:0] chip_enable;
+assign chip_reset_n = (chip_enable == 2'b11);
 
 reg[31:0] sleep;
 always @(posedge clk) begin
@@ -152,7 +161,7 @@ always @(posedge clk) begin
     if (sleep) sleep <= sleep -1;
 
     if (resetn == 0) begin
-        chip_reset_n     <= CHIP_RESET_ASSERTED;
+        chip_enable[0]   <= 0;
         chip_vddio       <= POWER_OFF;
         chip_vdd         <= POWER_OFF;
         chip_vddlvds     <= POWER_OFF;
@@ -166,17 +175,17 @@ always @(posedge clk) begin
 
         0:  begin
                 if (chip_power_ctl == 1 && chip_power_state == 0) begin
-                    chip_reset_n  <= CHIP_RESET_ASSERTED;
-                    lvl_trsl_oe_n <= LEVELSHIFT_DISABLED;
-                    sleep         <= 0;
-                    cpsm_state    <= 10;
+                    chip_enable[0] <= 0;
+                    lvl_trsl_oe_n  <= LEVELSHIFT_DISABLED;
+                    sleep          <= 0;
+                    cpsm_state     <= 10;
                 end
                 
                 if (chip_power_ctl == 0 && chip_power_state == 1) begin
-                    chip_reset_n  <= CHIP_RESET_ASSERTED;
-                    lvl_trsl_oe_n <= LEVELSHIFT_DISABLED;
-                    sleep         <= 100;
-                    cpsm_state    <= 20;
+                    chip_enable[0] <= 0;
+                    lvl_trsl_oe_n  <= LEVELSHIFT_DISABLED;
+                    sleep          <= 100;
+                    cpsm_state     <= 20;
                 end
             end
 
@@ -207,7 +216,7 @@ always @(posedge clk) begin
 
         14: if (sleep == 0) begin
                 lvl_trsl_oe_n    <= LEVELSHIFT_ENABLED;
-                chip_reset_n     <= CHIP_RESET_DEASSERTED;
+                chip_enable[0]   <= 1;;
                 chip_power_state <= 1;
                 cpsm_state       <= 0;
             end
@@ -258,9 +267,11 @@ always @(posedge clk) begin
     if (resetn == 0) begin
         ashi_write_state  <= 0;
         chip_power_ctl    <= 0;
+        chip_enable[1]    <= 1;
+    end
 
     // Otherwise, we're not in reset...
-    end else case (ashi_write_state)
+    else case (ashi_write_state)
         
         // If an AXI write-request has occured...
         0:  if (ashi_write) begin
@@ -270,7 +281,8 @@ always @(posedge clk) begin
             
                 // ashi_windex = index of register to be written
                 case (ashi_windx)
-                    REG_CHIP_POWER_CTL:  chip_power_ctl <= ashi_wdata;               
+                    REG_CHIP_POWER_CTL:  chip_power_ctl <= ashi_wdata;        
+                    REG_CHIP_RESET:      chip_enable[1] <= (ashi_wdata == 0);       
 
                     // Writes to any other register are a decode-error
                     default: ashi_wresp <= DECERR;
@@ -307,6 +319,7 @@ always @(posedge clk) begin
             // Allow a read from any valid register                
             REG_CHIP_POWER_CTL:     ashi_rdata <= chip_power_ctl;
             REG_CHIP_POWER_STATE:   ashi_rdata <= chip_power_state;
+            REG_CHIP_RESET:         ashi_rdata <= (chip_enable == 2'b11) ? 0:1;
 
             // Reads of any other register are a decode-error
             default: ashi_rresp <= DECERR;
