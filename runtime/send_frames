@@ -1,0 +1,53 @@
+# Pull in our infrastructure
+source api
+source uw_api
+
+
+print_userwave()
+{
+   local read_count=$1
+   test -z $read_count && read_count=1
+   test $read_count -eq 0 && read_count=1
+
+   echo "loop_control: begin loop $read_count"
+   echo "cmd_index:0, cmd_duration:300, read_en:1, read_phase:0, read_start_time:0"
+   echo "loop_control: end"
+}
+
+#
+# Configure mindy-core
+#
+axi MC_RFD_ADDR 0x1_0000_0000
+axi MC_RFD_SIZE 0x0_1000_0000
+axi MC_RMD_ADDR 0x2_0000_0000
+axi MC_RMD_SIZE 0x0_1000_0000
+axi MC_RFC_ADDR 0x3_0000_0000
+axi MC_FRAME_SIZE        0x40_0000
+axi MC_PACKET_SIZE       0x1000
+axi MC_PACKETS_PER_GROUP 4
+
+
+frame_count=$1; shift
+filename=/tmp/tmp.userwave
+print_userwave $frame_count >$filename
+
+# Place everything into a known starting state
+userwave_init
+
+# Load the userwave into host RAM
+userwave_length=$(load_userwave 0 $filename)
+
+# Feed the entire userwave to the fetcher
+provide 0 $userwave_length
+
+# Start the fetcher and the engine running
+start_fetcher 0
+sleep .5
+userwave_ctl safe_run 0
+userwave_status
+
+# Wait for underflow
+wait_underflow >/dev/null
+userwave_ctl unsafe_halt
+userwave_status
+
