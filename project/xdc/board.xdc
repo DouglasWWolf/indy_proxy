@@ -107,8 +107,8 @@ set_property -dict {PACKAGE_PIN J23   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports
 # FPGA outputs to control the sensor chip GPIO inputs
 #
 #set_property -dict {PACKAGE_PIN H12    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[0]];  # IO Bank 94
-#set_property -dict {PACKAGE_PIN H10    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[1]];  # IO Bank 94
-#set_property -dict {PACKAGE_PIN G11    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[2]];  # IO Bank 94
+#set_property -dict {PACKAGE_PIN H10    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[1]];  # IO Bank 94  - glb_pre_sw
+#set_property -dict {PACKAGE_PIN G11    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[2]];  # IO Bank 94  - disable_ncap
 #set_property -dict {PACKAGE_PIN G10    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[3]];  # IO Bank 94
 #set_property -dict {PACKAGE_PIN G12    IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports CHIP_GPIO[4]];  # IO Bank 94
 
@@ -121,7 +121,7 @@ set_property -dict {PACKAGE_PIN G12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_p
 set_property -dict {PACKAGE_PIN D10    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO15_DIR   ];  # IO Bank 91
 set_property -dict {PACKAGE_PIN H13    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO_BYTE_DIR];  # IO Bank 94
 set_property -dict {PACKAGE_PIN D12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports CHIP_PA_SYNC ];  # CHIP_GPIO11 - IO Bank 90
-
+set_property -dict {PACKAGE_PIN G11    IOSTANDARD LVCMOS18   SLEW SLOW }  [get_ports disable_ncap]];  # CHIP_GPIO2
 
 #
 # Userwave related signals

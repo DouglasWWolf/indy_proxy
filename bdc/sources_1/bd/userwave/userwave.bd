@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB338E0E69A5D3804",
+      "boundary_crc": "0x822AA0B5821652C",
       "device": "xcku15p-ffve1517-3-e",
       "gen_directory": "../../../../project.gen/sources_1/bd/userwave",
       "name": "userwave",
@@ -1073,6 +1073,9 @@
         "direction": "O"
       },
       "pin_aux_rs256": {
+        "direction": "O"
+      },
+      "disable_ncap": {
         "direction": "O"
       }
     },
@@ -2303,6 +2306,9 @@
             "left": "15",
             "right": "0"
           },
+          "disable_ncap": {
+            "direction": "O"
+          },
           "uw_halted": {
             "direction": "I"
           },
@@ -3095,10 +3101,10 @@
           "q0_fetcher/clk",
           "q1_fetcher/clk",
           "uw_pulse/clk",
-          "uw_ctl/clk",
           "uw_extra_flops/clk",
           "uw_engine/clk",
-          "uw_md_cdc/clk"
+          "uw_md_cdc/clk",
+          "uw_ctl/clk"
         ]
       },
       "dac_channel_1": {
@@ -3134,10 +3140,10 @@
       "resetn_1": {
         "ports": [
           "resetn",
-          "uw_ctl/resetn",
           "uw_extra_flops/resetn",
           "uw_engine/resetn",
-          "uw_md_cdc/resetn"
+          "uw_md_cdc/resetn",
+          "uw_ctl/resetn"
         ]
       },
       "sys_clk_1": {
@@ -3150,6 +3156,12 @@
         "ports": [
           "uw_ctl/ctl_command",
           "uw_engine/ctl_command"
+        ]
+      },
+      "uw_ctl_disable_ncap": {
+        "ports": [
+          "uw_ctl/disable_ncap",
+          "disable_ncap"
         ]
       },
       "uw_ctl_q0_suspend": {
@@ -3437,8 +3449,8 @@
       "uw_fetcher_0_q_active": {
         "ports": [
           "q0_fetcher/q_active",
-          "uw_ctl/q0_active",
-          "uw_engine/q0_active"
+          "uw_engine/q0_active",
+          "uw_ctl/q0_active"
         ]
       },
       "uw_fetcher_0_uw_host_free": {
@@ -3456,8 +3468,8 @@
       "uw_fetcher_1_q_active": {
         "ports": [
           "q1_fetcher/q_active",
-          "uw_ctl/q1_active",
-          "uw_engine/q1_active"
+          "uw_engine/q1_active",
+          "uw_ctl/q1_active"
         ]
       },
       "uw_fetcher_1_uw_host_free": {

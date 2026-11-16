@@ -57,6 +57,7 @@ module eth_status # (parameter AW=8)
 /*
     @register Bit 0 = Ethernet-link status of QSFP_0
     @rdesc    Bit 1 = Ethernet-link status of QSFP_1
+    @rtype    ro
 */
 localparam REG_LINK_STATUS = 0;
 //==========================================================================

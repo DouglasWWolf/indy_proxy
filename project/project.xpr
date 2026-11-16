@@ -111,14 +111,21 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/src/qsfp_pins.v">
+      <File Path="$PPRDIR/src/common/axi4_lite_slave.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/src/common/axi4_lite_slave.v">
+      <File Path="$PPRDIR/src/eth_status.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/qsfp_pins.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -140,13 +147,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/src/chip_power_ctl.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/eth_status.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -356,83 +356,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_delay.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_fetcher.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_ctl.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_decode_uwc.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_dual_ltc2656.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_encode_uwc.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_engine.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_extra_flops.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_pulse.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/common/axis_slice.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_md_cdc.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../bdc/sources_1/bd/abm_and_smem/src/chip_spi/chip_spi_if.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -595,6 +518,83 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../bdc/sources_1/bd/abm_and_smem/src/clock_mgr/clock_mgr_ctl.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_delay.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_fetcher.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_ctl.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_decode_uwc.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_dual_ltc2656.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_encode_uwc.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_engine.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_extra_flops.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_pulse.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/common/axis_slice.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../bdc/sources_1/bd/userwave/src/uw_md_cdc.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -1101,48 +1101,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="userwave_inst_0_uw_ctl_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_uw_ctl_0" RelGenDir="$PGENDIR/userwave_inst_0_uw_ctl_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_uw_ctl_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_uw_pulse_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_uw_pulse_0" RelGenDir="$PGENDIR/userwave_inst_0_uw_pulse_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_uw_pulse_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_uw_md_cdc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_uw_md_cdc_0" RelGenDir="$PGENDIR/userwave_inst_0_uw_md_cdc_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_uw_md_cdc_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_q1_fetcher_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_q1_fetcher_0" RelGenDir="$PGENDIR/userwave_inst_0_q1_fetcher_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_q1_fetcher_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_q0_fetcher_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_q0_fetcher_0" RelGenDir="$PGENDIR/userwave_inst_0_q0_fetcher_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_q0_fetcher_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_uw_engine_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_uw_engine_0" RelGenDir="$PGENDIR/userwave_inst_0_uw_engine_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_uw_engine_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="userwave_inst_0_uw_extra_flops_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/userwave_inst_0_uw_extra_flops_0" RelGenDir="$PGENDIR/userwave_inst_0_uw_extra_flops_0">
-      <Config>
-        <Option Name="TopModule" Val="userwave_inst_0_uw_extra_flops_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -1545,69 +1503,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="indy_lvds_inst_0_clk_768mhz_0_synth_1" Type="Ft3:Synth" SrcSet="indy_lvds_inst_0_clk_768mhz_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="indy_lvds_inst_0_clk_768mhz_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/indy_lvds_inst_0_clk_768mhz_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/indy_lvds_inst_0_clk_768mhz_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_ctl_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_uw_ctl_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_ctl_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_ctl_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_ctl_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_pulse_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_uw_pulse_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_pulse_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_pulse_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_pulse_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_md_cdc_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_uw_md_cdc_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_md_cdc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_md_cdc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_md_cdc_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_q1_fetcher_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_q1_fetcher_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_q1_fetcher_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q1_fetcher_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q1_fetcher_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_q0_fetcher_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_q0_fetcher_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_q0_fetcher_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q0_fetcher_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q0_fetcher_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_engine_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_uw_engine_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_engine_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_engine_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_engine_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_extra_flops_0_synth_1" Type="Ft3:Synth" SrcSet="userwave_inst_0_uw_extra_flops_0" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_extra_flops_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_extra_flops_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_extra_flops_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
@@ -2342,125 +2237,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="indy_lvds_inst_0_clk_768mhz_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="indy_lvds_inst_0_clk_768mhz_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="indy_lvds_inst_0_clk_768mhz_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/indy_lvds_inst_0_clk_768mhz_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/indy_lvds_inst_0_clk_768mhz_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_ctl_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_ctl_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_uw_ctl_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_ctl_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_ctl_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_pulse_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_pulse_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_uw_pulse_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_pulse_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_pulse_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_md_cdc_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_md_cdc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_uw_md_cdc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_md_cdc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_md_cdc_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_q1_fetcher_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_q1_fetcher_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_q1_fetcher_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q1_fetcher_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q1_fetcher_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_q0_fetcher_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_q0_fetcher_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_q0_fetcher_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q0_fetcher_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_q0_fetcher_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_engine_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_engine_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_uw_engine_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_engine_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_engine_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="userwave_inst_0_uw_extra_flops_0_impl_1" Type="Ft2:EntireDesign" Part="xcku15p-ffve1517-3-e" ConstrsSet="userwave_inst_0_uw_extra_flops_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="userwave_inst_0_uw_extra_flops_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_extra_flops_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/userwave_inst_0_uw_extra_flops_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
