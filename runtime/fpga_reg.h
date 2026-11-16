@@ -741,6 +741,16 @@
 
 
 //
+// Register:    UW_ENABLE_NCAP
+// Size:        32-bits
+// Type:        Read/Write
+// Description: 1 = enable  the sensor-chip NCAP capacitor
+//              0 = disable the sensor-chip NCAP capacitor
+//
+#define UW_ENABLE_NCAP                                               0x0000000000001618ULL
+
+
+//
 // Register:    UW_Q0_SUSPEND
 // Size:        32-bits
 // Type:        Read/Write
@@ -843,7 +853,7 @@
 //
 // Register:    ETH_LINK_STATUS
 // Size:        32-bits
-// Type:        Read/Write
+// Type:        Read only
 // Description: Bit 0 = Ethernet-link status of QSFP_0
 //              Bit 1 = Ethernet-link status of QSFP_1
 //
