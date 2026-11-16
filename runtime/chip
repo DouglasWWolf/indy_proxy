@@ -6,7 +6,7 @@ if [ -z $1 ]; then
     echo "  chip on                - Turn the chip power rails on"
     echo "  chip off               - Turn the chip power rails off"
     echo "  chip power             - Display chip power rail ADC readings"
-    echo "  chip reset             - Cycles the chip reset line
+    echo "  chip reset             - Cycles the chip reset line"
     echo "  chip <address>         - Read and display chip register/SMEM at <address>"
     echo "  chip <address> <value> - Store <value> to chip register/SMEM <address>"
     echo ""
