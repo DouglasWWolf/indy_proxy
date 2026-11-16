@@ -29,30 +29,30 @@ preplace inst ilconstant_0 -pg 1 -lvl 1 -x 190 -y 40 -defaultsOSRD -pinBusDir do
 preplace inst ilconstant_1 -pg 1 -lvl 1 -x 190 -y 140 -defaultsOSRD -pinBusDir dout right -pinBusY dout 20R
 preplace inst qsfp_pins -pg 1 -lvl 1 -x 190 -y 590 -defaultsOSRD -pinBusDir qsfp_rst_l right -pinBusY qsfp_rst_l 20R -pinBusDir qsfp_lp right -pinBusY qsfp_lp 40R
 preplace inst adc_bank -pg 1 -lvl 1 -x 190 -y 440 -defaultsOSRD -pinDir S_AXI_CTL left -pinY S_AXI_CTL 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L -pinBusDir UCI_ADC_CSN right -pinBusY UCI_ADC_CSN 20R -pinDir UCI_ADC_SCK right -pinY UCI_ADC_SCK 40R -pinDir UCI_ADC_MOSI right -pinY UCI_ADC_MOSI 60R -pinDir UCI_ADC_MISO left -pinY UCI_ADC_MISO 80L
-preplace inst indy_power_ctl -pg 1 -lvl 1 -x 190 -y 240 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 100L -pinDir resetn left -pinY resetn 120L -pinDir chip_vddio right -pinY chip_vddio 20R -pinDir chip_vdd right -pinY chip_vdd 40R -pinDir chip_vddlvds right -pinY chip_vddlvds 60R -pinDir chip_vdda right -pinY chip_vdda 80R -pinDir chip_reset_n right -pinY chip_reset_n 100R -pinDir lvl_trsl_oe_n right -pinY lvl_trsl_oe_n 120R
+preplace inst chip_power_ctl -pg 1 -lvl 1 -x 190 -y 240 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 100L -pinDir resetn left -pinY resetn 120L -pinDir chip_vddio right -pinY chip_vddio 20R -pinDir chip_vdd right -pinY chip_vdd 40R -pinDir chip_vddlvds right -pinY chip_vddlvds 60R -pinDir chip_vdda right -pinY chip_vdda 80R -pinDir chip_reset_n right -pinY chip_reset_n 100R -pinDir lvl_trsl_oe_n right -pinY lvl_trsl_oe_n 120R
 preplace netloc UCI_ADC_MISO_1 1 0 1 NJ 520
 preplace netloc adc_bank_UCI_ADC_CSN 1 1 1 NJ 460
 preplace netloc adc_bank_UCI_ADC_MOSI 1 1 1 NJ 500
 preplace netloc adc_bank_UCI_ADC_SCK 1 1 1 NJ 480
-preplace netloc chip_power_CHIP_RESET_N 1 1 1 NJ 340
-preplace netloc chip_power_CHIP_VDD 1 1 1 NJ 280
-preplace netloc chip_power_CHIP_VDDA 1 1 1 NJ 320
-preplace netloc chip_power_CHIP_VDDIO 1 1 1 NJ 260
-preplace netloc chip_power_CHIP_VDDLVDS 1 1 1 NJ 300
-preplace netloc chip_power_LVL_TRSL_OE_N 1 1 1 NJ 360
-preplace netloc clk_1 1 0 1 50 340n
+preplace netloc clk_1 1 0 1 40 340n
 preplace netloc ilconstant_0_dout 1 1 1 NJ 60
 preplace netloc ilconstant_1_dout 1 1 1 NJ 160
 preplace netloc qsfp_pins_qsfp_lp 1 1 1 NJ 630
 preplace netloc qsfp_pins_qsfp_rst_l 1 1 1 NJ 610
-preplace netloc resetn_1 1 0 1 30 360n
-preplace netloc Conn1 1 0 1 NJ 260
+preplace netloc resetn_1 1 0 1 20 360n
+preplace netloc chip_power_ctl_chip_vddio 1 1 1 NJ 260
+preplace netloc chip_power_ctl_chip_vdd 1 1 1 NJ 280
+preplace netloc chip_power_ctl_chip_vddlvds 1 1 1 NJ 300
+preplace netloc chip_power_ctl_chip_vdda 1 1 1 NJ 320
+preplace netloc chip_power_ctl_lvl_trsl_oe_n 1 1 1 NJ 360
+preplace netloc chip_power_ctl_chip_reset_n 1 1 1 NJ 340
 preplace netloc Conn2 1 0 1 NJ 460
+preplace netloc S_AXI_PWR_1 1 0 1 NJ 260
 levelinfo -pg 1 0 190 360
 pagesize -pg 1 -db -bbox -sgen -160 0 550 690
 ",
-   "No Loops_ScaleFactor":"1.0",
-   "No Loops_TopLeft":"-687,-76",
+   "No Loops_ScaleFactor":"3.53553",
+   "No Loops_TopLeft":"-232,188",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
 preplace inst framegen_ctl_0 -pg 1 -lvl 1 -x 120 -y 80 -defaultsOSRD

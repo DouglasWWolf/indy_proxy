@@ -217,17 +217,17 @@
 
 
 //
-// Register:    REG_CHIP_POWER_CTL
+// Register:    CHIP_POWER_CTL
 // Size:        32-bits
 // Type:        Read/Write
 // Description: Turn chip power on or off
 //              1 to turn power on, 0 to turn power off
 //
-#define REG_CHIP_POWER_CTL                                           0x0000000000001200ULL
+#define CHIP_POWER_CTL                                               0x0000000000001200ULL
 
 
 //
-// Register:    REG_CHIP_POWER_STATE
+// Register:    CHIP_POWER_STATE
 // Size:        32-bits
 // Type:        Read only
 // Description: Sensor chip power on state
@@ -236,18 +236,98 @@
 //              After turning power on or off, it may take as moment
 //              before that is reflected in this register
 //
-#define REG_CHIP_POWER_STATE                                         0x0000000000001204ULL
+#define CHIP_POWER_STATE                                             0x0000000000001204ULL
 
 
 //
-// Register:    REG_CHIP_RESET
+// Register:    CHIP_RESET
 // Size:        32-bits
 // Type:        Read/Write
 // Description: Sensor chip reset state
 //              1 = The sensor chip is held in reset
 //              0 = The sensor chip reset is released
 //
-#define REG_CHIP_RESET                                               0x0000000000001208ULL
+#define CHIP_RESET                                                   0x0000000000001208ULL
+
+
+//
+// Register:    CHIP_VDDIO_RISE_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power on sequencing -
+//              The number of ms to wait after enabling VDDIO
+//
+#define CHIP_VDDIO_RISE_MS                                           0x0000000000001220ULL
+
+
+//
+// Register:    CHIP_VDD_RISE_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power on sequencing -
+//              The number of ms to wait after enabling VDD
+//
+#define CHIP_VDD_RISE_MS                                             0x0000000000001224ULL
+
+
+//
+// Register:    CHIP_VDDLVDS_RISE_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power on sequencing -
+//              The number of ms to wait after enabling VDDLVDS
+//
+#define CHIP_VDDLVDS_RISE_MS                                         0x0000000000001228ULL
+
+
+//
+// Register:    CHIP_VDDA_RISE_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power on sequencing -
+//              The number of ms to wait after enabling VDDA
+//
+#define CHIP_VDDA_RISE_MS                                            0x000000000000122cULL
+
+
+//
+// Register:    CHIP_VDDIO_FALL_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power off sequencing -
+//              The number of ms to wait after disabling VDDIO
+//
+#define CHIP_VDDIO_FALL_MS                                           0x0000000000001240ULL
+
+
+//
+// Register:    CHIP_VDD_FALL_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power off sequencing -
+//              The number of ms to wait after disabling VDD
+//
+#define CHIP_VDD_FALL_MS                                             0x0000000000001244ULL
+
+
+//
+// Register:    CHIP_VDDLVDS_FALL_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power off sequencing -
+//              The number of ms to wait after disabling VDDLVDS
+//
+#define CHIP_VDDLVDS_FALL_MS                                         0x0000000000001248ULL
+
+
+//
+// Register:    CHIP_VDDA_FALL_MS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Sensor chip power off sequencing -
+//              The number of ms to wait after disabling VDDA
+//
+#define CHIP_VDDA_FALL_MS                                            0x000000000000124cULL
 
 
 //

@@ -14,20 +14,10 @@
 */
 
 
-module indy_power_ctl #
+module chip_power_ctl #
 (
     parameter AW=8,
-    parameter FREQ_HZ = 250000000,
-
-    parameter   VDDIO_RISE_MS = 10,
-    parameter     VDD_RISE_MS = 10,
-    parameter VDDLVDS_RISE_MS = 10,
-    parameter    VDDA_RISE_MS = 10,
-
-    parameter   VDDIO_FALL_MS = 200,
-    parameter     VDD_FALL_MS = 1000,
-    parameter VDDLVDS_FALL_MS = 40,
-    parameter    VDDA_FALL_MS = 2500
+    parameter FREQ_HZ = 250000000
 )
 (
     input clk, resetn,
@@ -80,10 +70,10 @@ module indy_power_ctl #
 
 /*
     @register Turn chip power on or off
-    @rdesc   1 to turn power on, 0 to turn power off
+    @rdesc    1 to turn power on, 0 to turn power off
     @rtype    rw
 */
-localparam REG_CHIP_POWER_CTL    = 0;
+localparam REG_POWER_CTL = 0;
 
 
 /*
@@ -94,14 +84,72 @@ localparam REG_CHIP_POWER_CTL    = 0;
     @rdesc    before that is reflected in this register
     @rtype    ro
 */
-localparam REG_CHIP_POWER_STATE  = 1;
+localparam REG_POWER_STATE = 1;
 
 /*
     @register Sensor chip reset state
     @rdesc    1 = The sensor chip is held in reset
     @rdesc    0 = The sensor chip reset is released
 */
-localparam REG_CHIP_RESET = 2;
+localparam REG_RESET = 2;
+
+
+/*
+    @register Sensor chip power on sequencing - 
+    @rdesc    The number of ms to wait after enabling VDDIO
+*/
+localparam REG_VDDIO_RISE_MS = 8;
+
+
+/*
+    @register Sensor chip power on sequencing - 
+    @rdesc    The number of ms to wait after enabling VDD
+*/
+localparam REG_VDD_RISE_MS = 9;
+
+
+/*
+    @register Sensor chip power on sequencing - 
+    @rdesc    The number of ms to wait after enabling VDDLVDS
+*/
+localparam REG_VDDLVDS_RISE_MS = 10;
+
+
+/*
+    @register Sensor chip power on sequencing - 
+    @rdesc    The number of ms to wait after enabling VDDA
+*/
+localparam REG_VDDA_RISE_MS = 11;
+
+
+/*
+    @register Sensor chip power off sequencing - 
+    @rdesc    The number of ms to wait after disabling VDDIO
+*/
+localparam REG_VDDIO_FALL_MS = 16;
+
+
+/*
+    @register Sensor chip power off sequencing - 
+    @rdesc    The number of ms to wait after disabling VDD
+*/
+localparam REG_VDD_FALL_MS = 17;
+
+
+/*
+    @register Sensor chip power off sequencing - 
+    @rdesc    The number of ms to wait after disabling VDDLVDS
+*/
+localparam REG_VDDLVDS_FALL_MS = 18;
+
+
+/*
+    @register Sensor chip power off sequencing - 
+    @rdesc    The number of ms to wait after disabling VDDA
+*/
+localparam REG_VDDA_FALL_MS = 19;
+
+
 //==========================================================================
 
 
@@ -145,6 +193,16 @@ localparam POWER_OFF = 0;
 localparam POWER_ON  = 1;
 localparam LEVELSHIFT_ENABLED  = 0;
 localparam LEVELSHIFT_DISABLED = 1;
+
+// The rise and fall times (in milliseconds) of the various voltage rails
+reg[31:0]   vddio_rise_ms;
+reg[31:0]     vdd_rise_ms;
+reg[31:0] vddlvds_rise_ms;
+reg[31:0]    vdda_rise_ms;
+reg[31:0]   vddio_fall_ms;
+reg[31:0]     vdd_fall_ms;
+reg[31:0] vddlvds_fall_ms;
+reg[31:0]    vdda_fall_ms;
 
 reg chip_power_ctl;
 reg chip_power_state;
@@ -192,25 +250,25 @@ always @(posedge clk) begin
         // Here we power up the chip
         10: if (sleep == 0) begin
                 chip_vddio <= POWER_ON;
-                sleep      <= VDDIO_RISE_MS * ONE_MS;
+                sleep      <= vddio_rise_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
         11: if (sleep == 0) begin
                 chip_vdd   <= POWER_ON;
-                sleep      <= VDD_RISE_MS * ONE_MS;
+                sleep      <= vdd_rise_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
         12: if (sleep == 0) begin
                 chip_vddlvds <= POWER_ON;
-                sleep        <= VDDLVDS_RISE_MS * ONE_MS;
+                sleep        <= vddlvds_rise_ms * ONE_MS;
                 cpsm_state   <= cpsm_state + 1;
             end
 
         13: if (sleep == 0) begin
                 chip_vdda  <= POWER_ON;
-                sleep      <= VDDA_RISE_MS * ONE_MS;
+                sleep      <= vdda_rise_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
@@ -225,25 +283,25 @@ always @(posedge clk) begin
         // This is the power-down sequence
         20: if (sleep == 0) begin
                 chip_vdda  <= POWER_OFF;
-                sleep      <= VDDA_FALL_MS * ONE_MS;
+                sleep      <= vdda_fall_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
         21: if (sleep == 0) begin
                 chip_vddlvds <= POWER_OFF;
-                sleep        <= VDDLVDS_FALL_MS * ONE_MS;
+                sleep        <= vddlvds_fall_ms * ONE_MS;
                 cpsm_state   <= cpsm_state + 1;
             end
 
         22: if (sleep == 0) begin
                 chip_vdd   <= POWER_OFF;
-                sleep      <= VDD_FALL_MS * ONE_MS;
+                sleep      <= vdd_fall_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
         23: if (sleep == 0) begin
                 chip_vddio <= POWER_OFF;
-                sleep      <= VDD_FALL_MS * ONE_MS;
+                sleep      <= vdd_fall_ms * ONE_MS;
                 cpsm_state <= cpsm_state + 1;
             end
 
@@ -268,6 +326,16 @@ always @(posedge clk) begin
         ashi_write_state  <= 0;
         chip_power_ctl    <= 0;
         chip_enable[1]    <= 1;
+
+          vddio_rise_ms <= 10;
+            vdd_rise_ms <= 10;
+        vddlvds_rise_ms <= 10;
+           vdda_rise_ms <= 10;
+          
+          vddio_fall_ms <= 500;
+            vdd_fall_ms <= 1000;
+        vddlvds_fall_ms <= 50;
+           vdda_fall_ms <= 50;
     end
 
     // Otherwise, we're not in reset...
@@ -281,8 +349,18 @@ always @(posedge clk) begin
             
                 // ashi_windex = index of register to be written
                 case (ashi_windx)
-                    REG_CHIP_POWER_CTL:  chip_power_ctl <= ashi_wdata;        
-                    REG_CHIP_RESET:      chip_enable[1] <= (ashi_wdata == 0);       
+                    REG_POWER_CTL:       chip_power_ctl <= ashi_wdata;        
+                    REG_RESET:           chip_enable[1] <= (ashi_wdata == 0);       
+
+                    REG_VDD_RISE_MS:          vdd_rise_ms <= ashi_wdata;
+                    REG_VDDIO_RISE_MS:      vddio_rise_ms <= ashi_wdata;
+                    REG_VDDLVDS_RISE_MS:  vddlvds_rise_ms <= ashi_wdata;
+                    REG_VDDA_RISE_MS:        vdda_rise_ms <= ashi_wdata;
+
+                    REG_VDD_FALL_MS:          vdd_fall_ms <= ashi_wdata;
+                    REG_VDDIO_FALL_MS:      vddio_fall_ms <= ashi_wdata;
+                    REG_VDDLVDS_FALL_MS:  vddlvds_fall_ms <= ashi_wdata;
+                    REG_VDDA_FALL_MS:        vdda_fall_ms <= ashi_wdata;
 
                     // Writes to any other register are a decode-error
                     default: ashi_wresp <= DECERR;
@@ -317,9 +395,19 @@ always @(posedge clk) begin
         case (ashi_rindx)
             
             // Allow a read from any valid register                
-            REG_CHIP_POWER_CTL:     ashi_rdata <= chip_power_ctl;
-            REG_CHIP_POWER_STATE:   ashi_rdata <= chip_power_state;
-            REG_CHIP_RESET:         ashi_rdata <= (chip_enable == 2'b11) ? 0:1;
+            REG_POWER_CTL:       ashi_rdata <= chip_power_ctl;
+            REG_POWER_STATE:     ashi_rdata <= chip_power_state;
+            REG_RESET:           ashi_rdata <= (chip_enable == 2'b11) ? 0:1;
+
+            REG_VDD_RISE_MS:     ashi_rdata <=     vdd_rise_ms;
+            REG_VDDIO_RISE_MS:   ashi_rdata <=   vddio_rise_ms;
+            REG_VDDLVDS_RISE_MS: ashi_rdata <= vddlvds_rise_ms;
+            REG_VDDA_RISE_MS:    ashi_rdata <=    vdda_rise_ms;
+
+            REG_VDD_FALL_MS:     ashi_rdata <=     vdd_fall_ms;
+            REG_VDDIO_FALL_MS:   ashi_rdata <=   vddio_fall_ms;
+            REG_VDDLVDS_FALL_MS: ashi_rdata <= vddlvds_fall_ms;
+            REG_VDDA_FALL_MS:    ashi_rdata <=    vdda_fall_ms;
 
             // Reads of any other register are a decode-error
             default: ashi_rresp <= DECERR;
