@@ -142,3 +142,11 @@ set_property -dict {PACKAGE_PIN A17    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_p
 set_property -dict {PACKAGE_PIN B16    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports uw_dac_spi_mosi1];  # 
 
 
+#
+# I2C M24C04 EEPROM signals
+#
+set_property -dict { PACKAGE_PIN R14 IOSTANDARD LVCMOS18 } [get_ports EEPROM_scl_io ];
+set_property -dict { PACKAGE_PIN R13 IOSTANDARD LVCMOS18 } [get_ports EEPROM_sda_io ];
+
+
+

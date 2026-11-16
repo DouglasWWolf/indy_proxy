@@ -921,5 +921,145 @@
 #define CHIP_FREQ_OUT                                                0x000000000000900cULL
 
 
+//
+// Register:    EEPROM_GIE
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Global Interrupt Enable Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_GIE                                                   0x000000000001001cULL
+
+
+//
+// Register:    EEPROM_ISR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Interrupt Status Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_ISR                                                   0x0000000000010020ULL
+
+
+//
+// Register:    EEPROM_IER
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Interrupt Enable Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_IER                                                   0x0000000000010028ULL
+
+
+//
+// Register:    EEPROM_SOFTR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Soft Reset Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_SOFTR                                                 0x0000000000010040ULL
+
+
+//
+// Register:    EEPROM_CR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Control Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_CR                                                    0x0000000000010100ULL
+
+
+//
+// Register:    EEPROM_SR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Status Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_SR                                                    0x0000000000010104ULL
+
+
+//
+// Register:    EEPROM_TX_FIFO
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Transmit FIFO Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_TX_FIFO                                               0x0000000000010108ULL
+
+
+//
+// Register:    EEPROM_RX_FIFO
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Receive FIFO Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_RX_FIFO                                               0x000000000001010cULL
+
+
+//
+// Register:    EEPROM_ADR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Slave Address Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_ADR                                                   0x0000000000010110ULL
+
+
+//
+// Register:    EEPROM_TX_FIFO_OCY
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Transmit FIFO Occupancy Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_TX_FIFO_OCY                                           0x0000000000010114ULL
+
+
+//
+// Register:    EEPROM_RX_FIFO_OCY
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Receive FIFO Occupancy Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_RX_FIFO_OCY                                           0x0000000000010118ULL
+
+
+//
+// Register:    EEPROM_TEN_ADR
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Slave Ten Bit Address Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_TEN_ADR                                               0x000000000001011cULL
+
+
+//
+// Register:    EEPROM_RX_FIFO_PIRQ
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Receive FIFO Programmable Depth Interrupt Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_RX_FIFO_PIRQ                                          0x0000000000010120ULL
+
+
+//
+// Register:    EEPROM_GPO
+// Size:        32-bits
+// Type:        Read/Write
+// Description: General Purpose Output Register
+//              See Xilinx/AMD PG090
+//
+#define EEPROM_GPO                                                   0x0000000000010124ULL
+
+
 
 #endif
