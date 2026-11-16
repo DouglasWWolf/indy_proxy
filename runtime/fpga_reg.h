@@ -841,6 +841,16 @@
 
 
 //
+// Register:    ETH_LINK_STATUS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Bit 0 = Ethernet-link status of QSFP_0
+//              Bit 1 = Ethernet-link status of QSFP_1
+//
+#define ETH_LINK_STATUS                                              0x0000000000001700ULL
+
+
+//
 // Register:    CHIP_REF_CLOCK
 // Size:        32-bits
 // Type:        Read only
