@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_level_axi_iic_0_0",
-    "cell_name": "eeprom_iic",
+    "cell_name": "misc/eeprom_iic",
     "component_reference": "xilinx.com:ip:axi_iic:2.1",
     "ip_revision": "9",
     "gen_directory": "../../../../../../project.gen/sources_1/bd/top_level/ip/top_level_axi_iic_0_0",

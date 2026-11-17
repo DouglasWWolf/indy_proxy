@@ -331,12 +331,12 @@
 
 
 //
-// Register:    REG_CHIP_PWR_ADC
+// Register:    UCI_ADC
 // Size:        32-bits
 // Type:        Read only
 // Description: Array of 32 ADC readings
 //
-#define REG_CHIP_PWR_ADC                                             0x0000000000001300ULL
+#define UCI_ADC                                                      0x0000000000001300ULL
 
 
 //
@@ -858,6 +858,15 @@
 //              Bit 1 = Ethernet-link status of QSFP_1
 //
 #define ETH_LINK_STATUS                                              0x0000000000001700ULL
+
+
+//
+// Register:    DIG_ADC
+// Size:        32-bits
+// Type:        Read only
+// Description: Array of 32 ADC readings
+//
+#define DIG_ADC                                                      0x0000000000001800ULL
 
 
 //

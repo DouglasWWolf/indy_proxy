@@ -56,7 +56,7 @@ module axi_adc_bank # (parameter AW=8, ADC_COUNT = 1)
     @register Array of 32 ADC readings
     @rtype    ro
 */
-localparam REG_CHIP_PWR_ADC = 0;
+localparam REG_ADC = 0;
 
 //==========================================================================
 // We'll communicate with the AXI4-Lite Slave core with these signals.

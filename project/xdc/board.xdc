@@ -101,6 +101,16 @@ set_property -dict {PACKAGE_PIN C24   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports
 set_property -dict {PACKAGE_PIN J23   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_SCK   ];  # IO Bank 70
 
 
+#
+#  DIG ADC bus - contains 2 LTC-1867L ADCs
+#
+set_property -dict {PACKAGE_PIN AT11  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_CSN[0]];  # IO Bank 70
+set_property -dict {PACKAGE_PIN AR13  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_CSN[1]];  # IO Bank 93
+set_property -dict {PACKAGE_PIN C13   IOSTANDARD LVCMOS18           } [get_ports DIG_ADC_MISO  ];  # IO Bank 94
+set_property -dict {PACKAGE_PIN AK16  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_MOSI  ];  # IO Bank 70
+set_property -dict {PACKAGE_PIN Ap10  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_SCK   ];  # IO Bank 70
+
+
 
 
 #
