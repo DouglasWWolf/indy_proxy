@@ -83,11 +83,11 @@ set_property -dict {PACKAGE_PIN AT14 IOSTANDARD LVCMOS18} [ get_ports PCB_FAN_TA
 #
 #  Sensor chip power rail enables
 #
-set_property -dict {PACKAGE_PIN AW10  IOSTANDARD LVCMOS18           } [get_ports CHIP_RESET_N];  # IO Bank 65
-set_property -dict {PACKAGE_PIN B9    IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports CHIP_VDDIO  ];  # IO Bank 91
-set_property -dict {PACKAGE_PIN B10   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports CHIP_VDDA   ];  # IO Bank 91 
-set_property -dict {PACKAGE_PIN B11   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports CHIP_VDDLVDS];  # IO Bank 91 
-set_property -dict {PACKAGE_PIN A18   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports CHIP_VDD    ];  # IO Bank 71
+set_property -dict {PACKAGE_PIN AW10  IOSTANDARD LVCMOS18} [get_ports CHIP_RESET_N];  # IO Bank 65
+set_property -dict {PACKAGE_PIN B9    IOSTANDARD LVCMOS18} [get_ports CHIP_VDDIO  ];  # IO Bank 91
+set_property -dict {PACKAGE_PIN B10   IOSTANDARD LVCMOS18} [get_ports CHIP_VDDA   ];  # IO Bank 91 
+set_property -dict {PACKAGE_PIN B11   IOSTANDARD LVCMOS18} [get_ports CHIP_VDDLVDS];  # IO Bank 91 
+set_property -dict {PACKAGE_PIN A18   IOSTANDARD LVCMOS18} [get_ports CHIP_VDD    ];  # IO Bank 71
 #set_property -dict {PACKAGE_PIN B30   IOSTANDARD LVCMOS18           } [get_ports CHIP_DETECT_8M];  # IO Bank 71
 
 
@@ -95,31 +95,38 @@ set_property -dict {PACKAGE_PIN A18   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports
 #
 #  This enables a level translator for SPI pins on the sensor-chip (active low)
 #
-set_property -dict {PACKAGE_PIN A4     IOSTANDARD LVCMOS18   SLEW SLOW } [get_ports LVL_TRSL_OE_N];  # IO Bank 90
+set_property -dict {PACKAGE_PIN A4  IOSTANDARD LVCMOS18} [get_ports LVL_TRSL_OE_N];  # IO Bank 90
 
 
 
 #
 #  UCI ADC bus - contains 3 LTC-1867L ADCs
 #
-set_property -dict {PACKAGE_PIN C25   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_CSN[0]];  # IO Bank 70
-set_property -dict {PACKAGE_PIN R15   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_CSN[1]];  # IO Bank 93
-set_property -dict {PACKAGE_PIN K25   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_CSN[2]];  # IO Bank 69
-set_property -dict {PACKAGE_PIN J13   IOSTANDARD LVCMOS18           } [get_ports UCI_ADC_MISO  ];  # IO Bank 94
-set_property -dict {PACKAGE_PIN C24   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_MOSI  ];  # IO Bank 70
-set_property -dict {PACKAGE_PIN J23   IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports UCI_ADC_SCK   ];  # IO Bank 70
+set_property -dict {PACKAGE_PIN C25   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_CSN[0]];
+set_property -dict {PACKAGE_PIN R15   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_CSN[1]];
+set_property -dict {PACKAGE_PIN K25   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_CSN[2]];
+set_property -dict {PACKAGE_PIN J13   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_MISO  ];
+set_property -dict {PACKAGE_PIN C24   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_MOSI  ];
+set_property -dict {PACKAGE_PIN J23   IOSTANDARD LVCMOS18} [get_ports UCI_ADC_SCK   ];
 
 
 #
 #  DIG ADC bus - contains 2 LTC-1867L ADCs
 #
-set_property -dict {PACKAGE_PIN AT11  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_CSN[0]];  # IO Bank 70
-set_property -dict {PACKAGE_PIN AR13  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_CSN[1]];  # IO Bank 93
-set_property -dict {PACKAGE_PIN C13   IOSTANDARD LVCMOS18           } [get_ports DIG_ADC_MISO  ];  # IO Bank 94
-set_property -dict {PACKAGE_PIN AK16  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_MOSI  ];  # IO Bank 70
-set_property -dict {PACKAGE_PIN Ap10  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports DIG_ADC_SCK   ];  # IO Bank 70
+set_property -dict {PACKAGE_PIN AT11  IOSTANDARD LVCMOS18} [get_ports DIG_ADC_CSN[0]];
+set_property -dict {PACKAGE_PIN AR13  IOSTANDARD LVCMOS18} [get_ports DIG_ADC_CSN[1]];
+set_property -dict {PACKAGE_PIN C13   IOSTANDARD LVCMOS18} [get_ports DIG_ADC_MISO  ];
+set_property -dict {PACKAGE_PIN AK16  IOSTANDARD LVCMOS18} [get_ports DIG_ADC_MOSI  ];
+set_property -dict {PACKAGE_PIN AP10  IOSTANDARD LVCMOS18} [get_ports DIG_ADC_SCK   ];
 
 
+#
+#  AUX ADC bus - contains 1 LTC-1867L 
+#
+set_property -dict {PACKAGE_PIN AL17 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_CSN   ];
+set_property -dict {PACKAGE_PIN AU14 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_MISO  ];
+set_property -dict {PACKAGE_PIN AT12 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_MOSI  ];
+set_property -dict {PACKAGE_PIN AN16 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_SCK   ];
 
 
 #
@@ -134,31 +141,31 @@ set_property -dict {PACKAGE_PIN Ap10  IOSTANDARD LVCMOS18  SLEW SLOW} [get_ports
 
 
 # Non-LVDS sensor-chip signals
-set_property -dict {PACKAGE_PIN H12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO0        ];  # IO Bank 91
-set_property -dict {PACKAGE_PIN G10    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO3        ];  # IO Bank 91
-set_property -dict {PACKAGE_PIN G12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO4        ];  # IO Bank 91
-set_property -dict {PACKAGE_PIN D10    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO15_DIR   ];  # IO Bank 91
-set_property -dict {PACKAGE_PIN H13    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports GPIO_BYTE_DIR];  # IO Bank 94
-set_property -dict {PACKAGE_PIN D12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports CHIP_PA_SYNC ];  # CHIP_GPIO11 - IO Bank 90
-set_property -dict {PACKAGE_PIN G11    IOSTANDARD LVCMOS18   SLEW SLOW }  [get_ports disable_ncap ];  # CHIP_GPIO2
+set_property -dict {PACKAGE_PIN H12    IOSTANDARD LVCMOS18} [get_ports GPIO0        ];  # IO Bank 91
+set_property -dict {PACKAGE_PIN G10    IOSTANDARD LVCMOS18} [get_ports GPIO3        ];  # IO Bank 91
+set_property -dict {PACKAGE_PIN G12    IOSTANDARD LVCMOS18} [get_ports GPIO4        ];  # IO Bank 91
+set_property -dict {PACKAGE_PIN D10    IOSTANDARD LVCMOS18} [get_ports GPIO15_DIR   ];  # IO Bank 91
+set_property -dict {PACKAGE_PIN H13    IOSTANDARD LVCMOS18} [get_ports GPIO_BYTE_DIR];  # IO Bank 94
+set_property -dict {PACKAGE_PIN D12    IOSTANDARD LVCMOS18} [get_ports CHIP_PA_SYNC ];  # CHIP_GPIO11 - IO Bank 90
+set_property -dict {PACKAGE_PIN G11    IOSTANDARD LVCMOS18} [get_ports disable_ncap ];  # CHIP_GPIO2
 
 #
 # Userwave related signals
 #
-set_property -dict {PACKAGE_PIN C12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports rs0             ];  # GPIO12 - IO Bank 94
-set_property -dict {PACKAGE_PIN A12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports rs256           ];  # GPIO14 - IO Bank 94
-set_property -dict {PACKAGE_PIN C19    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports vpretop_sw      ];  # 
-set_property -dict {PACKAGE_PIN J18    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports vprebot_sw      ];  # 
-set_property -dict {PACKAGE_PIN H10    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports glb_pre_sw      ];  # GPIO1
-set_property -dict {PACKAGE_PIN H23    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports liq_sw          ];  # 
-set_property -dict {PACKAGE_PIN J11    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports refn_sw         ];  # 
-set_property -dict {PACKAGE_PIN J12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports refp_sw         ];  # 
-set_property -dict {PACKAGE_PIN B12    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports pre0            ];  # GPIO13
-set_property -dict {PACKAGE_PIN D13    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports pre256          ];  # GPIO15 
-set_property -dict {PACKAGE_PIN B15    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports uw_dac_spi_csld ];  # 
-set_property -dict {PACKAGE_PIN A16    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports uw_dac_spi_sck  ];  # 
-set_property -dict {PACKAGE_PIN A17    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports uw_dac_spi_mosi0];  # 
-set_property -dict {PACKAGE_PIN B16    IOSTANDARD LVCMOS18   SLEW SLOW  } [get_ports uw_dac_spi_mosi1];  # 
+set_property -dict {PACKAGE_PIN C12    IOSTANDARD LVCMOS18} [get_ports rs0             ];  # GPIO12 - IO Bank 94
+set_property -dict {PACKAGE_PIN A12    IOSTANDARD LVCMOS18} [get_ports rs256           ];  # GPIO14 - IO Bank 94
+set_property -dict {PACKAGE_PIN C19    IOSTANDARD LVCMOS18} [get_ports vpretop_sw      ];  # 
+set_property -dict {PACKAGE_PIN J18    IOSTANDARD LVCMOS18} [get_ports vprebot_sw      ];  # 
+set_property -dict {PACKAGE_PIN H10    IOSTANDARD LVCMOS18} [get_ports glb_pre_sw      ];  # GPIO1
+set_property -dict {PACKAGE_PIN H23    IOSTANDARD LVCMOS18} [get_ports liq_sw          ];  # 
+set_property -dict {PACKAGE_PIN J11    IOSTANDARD LVCMOS18} [get_ports refn_sw         ];  # 
+set_property -dict {PACKAGE_PIN J12    IOSTANDARD LVCMOS18} [get_ports refp_sw         ];  # 
+set_property -dict {PACKAGE_PIN B12    IOSTANDARD LVCMOS18} [get_ports pre0            ];  # GPIO13
+set_property -dict {PACKAGE_PIN D13    IOSTANDARD LVCMOS18} [get_ports pre256          ];  # GPIO15 
+set_property -dict {PACKAGE_PIN B15    IOSTANDARD LVCMOS18} [get_ports uw_dac_spi_csld ];  # 
+set_property -dict {PACKAGE_PIN A16    IOSTANDARD LVCMOS18} [get_ports uw_dac_spi_sck  ];  # 
+set_property -dict {PACKAGE_PIN A17    IOSTANDARD LVCMOS18} [get_ports uw_dac_spi_mosi0];  # 
+set_property -dict {PACKAGE_PIN B16    IOSTANDARD LVCMOS18} [get_ports uw_dac_spi_mosi1];  # 
 
 
 #

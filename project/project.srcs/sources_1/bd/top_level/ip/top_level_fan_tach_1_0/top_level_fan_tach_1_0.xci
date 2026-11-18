@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_level_fan_tach_1_0",
-    "cell_name": "pcb_fan_tach",
+    "cell_name": "misc/misc/pcb_fan_tach",
     "component_reference": "xilinx.com:module_ref:fan_tach:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../project.gen/sources_1/bd/top_level/ip/top_level_fan_tach_1_0",

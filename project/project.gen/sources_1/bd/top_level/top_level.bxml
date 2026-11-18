@@ -38,6 +38,24 @@
       </BlockContainer>
     </BlockContainerCollection>
     <ReferenceCollection>
+      <ModuleReference TargetName="userwave" Type="Block Design" SubInstancePath="top_level_userwave_0">
+        <TopFile Name="../../../../../bdc/sources_1/bd/userwave/userwave.bd"/>
+        <FileCollection>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_delay.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_fetcher.v"/>
+          <File Name="../../../../src/common/axi4_lite_slave.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_ctl.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_decode_uwc.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_dual_ltc2656.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_encode_uwc.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_engine.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_extra_flops.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_pulse.v"/>
+          <File Name="../../../../src/common/axis_slice.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_md_cdc.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/userwave/userwave.bd"/>
+        </FileCollection>
+      </ModuleReference>
       <ModuleReference TargetName="mindy_core" Type="Block Design" SubInstancePath="top_level_mindy_core_0">
         <TopFile Name="../../../../../bdc/sources_1/bd/mindy_core/mindy_core.bd"/>
         <FileCollection>
@@ -107,24 +125,6 @@
           <File Name="../../../../../bdc/sources_1/bd/indy_lvds/src/lvds_bank_reorder.v"/>
           <File Name="../../../../../bdc/sources_1/bd/indy_lvds/src/lvds_reorder.v"/>
           <File Name="../../../../../bdc/sources_1/bd/indy_lvds/indy_lvds.bd"/>
-        </FileCollection>
-      </ModuleReference>
-      <ModuleReference TargetName="userwave" Type="Block Design" SubInstancePath="top_level_userwave_0">
-        <TopFile Name="../../../../../bdc/sources_1/bd/userwave/userwave.bd"/>
-        <FileCollection>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_delay.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_fetcher.v"/>
-          <File Name="../../../../src/common/axi4_lite_slave.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_ctl.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_decode_uwc.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_dual_ltc2656.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_encode_uwc.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_engine.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_extra_flops.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_pulse.v"/>
-          <File Name="../../../../src/common/axis_slice.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_md_cdc.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/userwave/userwave.bd"/>
         </FileCollection>
       </ModuleReference>
     </ReferenceCollection>

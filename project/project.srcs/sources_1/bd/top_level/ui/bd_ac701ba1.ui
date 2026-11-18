@@ -18,11 +18,11 @@ preplace inst axi_adc_bank -pg 1 -lvl 2 -x 480 -y 40 -defaultsOSRD -pinDir S_AXI
 preplace inst ltc1867l -pg 1 -lvl 1 -x 210 -y 140 -defaultsOSRD -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L -pinBusDir slave_select left -pinBusY slave_select 60L -pinDir spi_sclk left -pinY spi_sclk 80L -pinDir spi_mosi left -pinY spi_mosi 100L -pinDir spi_miso left -pinY spi_miso 120L -pinBusDir adc_values right -pinBusY adc_values 20R
 preplace netloc UCI_ADC_MISO_1 1 0 1 NJ 260
 preplace netloc ltc1867l_adc_values 1 1 1 N 160
+preplace netloc ltc1867l_slave_select 1 0 1 NJ 200
 preplace netloc ltc1867l_spi_mosi 1 0 1 NJ 240
 preplace netloc ltc1867l_spi_sclk 1 0 1 NJ 220
 preplace netloc pcie_bridge_0_axi_aclk 1 0 2 40 80 NJ
 preplace netloc pcie_bridge_0_axi_aresetn 1 0 2 20 100 NJ
-preplace netloc ltc1867l_slave_select 1 0 1 NJ 200
 preplace netloc smartconnect_M04_AXI 1 0 2 NJ 60 NJ
 levelinfo -pg 1 0 210 480 570
 pagesize -pg 1 -db -bbox -sgen -160 0 570 320
@@ -52,4 +52,4 @@ levelinfo -pg 1 0 160 430 550
 pagesize -pg 1 -db -bbox -sgen -140 0 720 310
 "
 }
-
+0

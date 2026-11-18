@@ -1,0 +1,21 @@
+source api
+
+fetch_adc()
+{
+    local adc=$1
+    local channel=$2
+    local address=$((AUX_ADC + $adc*32 + $channel*4))
+    pcireg -dec $address
+}
+
+
+printf "RAIL_24v0 : 0x%04X\n" $(fetch_adc 0 0)
+printf "unused    : 0x%04X\n" $(fetch_adc 0 1)
+printf "unused    : 0x%04X\n" $(fetch_adc 0 2)
+printf "TEC1_VTEC : 0x%04X\n" $(fetch_adc 0 3)
+printf "TEC1_ITEC : 0x%04X\n" $(fetch_adc 0 4)
+printf "TEC1_TEMP : 0x%04X\n" $(fetch_adc 0 5)
+printf "TEC2_TEMP : 0x%04X\n" $(fetch_adc 0 6)
+printf "unused    : 0x%04X\n" $(fetch_adc 0 7)
+
+

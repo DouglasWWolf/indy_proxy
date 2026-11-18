@@ -53,7 +53,10 @@ module axi_adc_bank # (parameter AW=8, ADC_COUNT = 1)
 
 
 /*
-    @register Array of 32 ADC readings
+    @register Array of ADC readings
+    @rdesc    UCI_DAC = 32 channels, one reading per channel
+    @rdesc    DIG_DAC = 16 channels, one reading per channel
+    @rdesc    AUX_DAC =  8 channels, one reading per channel
     @rtype    ro
 */
 localparam REG_ADC = 0;

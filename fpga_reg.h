@@ -334,7 +334,10 @@
 // Register:    UCI_ADC
 // Size:        32-bits
 // Type:        Read only
-// Description: Array of 32 ADC readings
+// Description: Array of ADC readings
+//              UCI_DAC = 32 channels, one reading per channel
+//              DIG_DAC = 16 channels, one reading per channel
+//              AUX_DAC =  8 channels, one reading per channel
 //
 #define UCI_ADC                                                      0x0000000000001300ULL
 
@@ -864,7 +867,10 @@
 // Register:    DIG_ADC
 // Size:        32-bits
 // Type:        Read only
-// Description: Array of 32 ADC readings
+// Description: Array of ADC readings
+//              UCI_DAC = 32 channels, one reading per channel
+//              DIG_DAC = 16 channels, one reading per channel
+//              AUX_DAC =  8 channels, one reading per channel
 //
 #define DIG_ADC                                                      0x0000000000001800ULL
 
@@ -885,6 +891,18 @@
 // Description: The tachometer count for the PCB fan
 //
 #define REG_PCB_FAN                                                  0x0000000000001904ULL
+
+
+//
+// Register:    AUX_ADC
+// Size:        32-bits
+// Type:        Read only
+// Description: Array of ADC readings
+//              UCI_DAC = 32 channels, one reading per channel
+//              DIG_DAC = 16 channels, one reading per channel
+//              AUX_DAC =  8 channels, one reading per channel
+//
+#define AUX_ADC                                                      0x0000000000001a00ULL
 
 
 //
