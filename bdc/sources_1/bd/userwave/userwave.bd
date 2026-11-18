@@ -2338,6 +2338,11 @@
           },
           "pa_sync_alive": {
             "direction": "I"
+          },
+          "md_timestamp": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
           }
         }
       },
@@ -2668,6 +2673,11 @@
           },
           "smem_access_enable": {
             "direction": "O"
+          },
+          "md_timestamp": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
           },
           "spi_csld": {
             "direction": "O"
@@ -3102,9 +3112,9 @@
           "q1_fetcher/clk",
           "uw_pulse/clk",
           "uw_extra_flops/clk",
-          "uw_engine/clk",
           "uw_md_cdc/clk",
-          "uw_ctl/clk"
+          "uw_ctl/clk",
+          "uw_engine/clk"
         ]
       },
       "dac_channel_1": {
@@ -3141,9 +3151,9 @@
         "ports": [
           "resetn",
           "uw_extra_flops/resetn",
-          "uw_engine/resetn",
           "uw_md_cdc/resetn",
-          "uw_ctl/resetn"
+          "uw_ctl/resetn",
+          "uw_engine/resetn"
         ]
       },
       "sys_clk_1": {
@@ -3240,6 +3250,12 @@
         "ports": [
           "uw_engine/md_stall_stb",
           "uw_ctl/uw_md_stall_stb"
+        ]
+      },
+      "uw_engine_md_timestamp": {
+        "ports": [
+          "uw_engine/md_timestamp",
+          "uw_ctl/md_timestamp"
         ]
       },
       "uw_engine_pre0": {
@@ -3449,8 +3465,8 @@
       "uw_fetcher_0_q_active": {
         "ports": [
           "q0_fetcher/q_active",
-          "uw_engine/q0_active",
-          "uw_ctl/q0_active"
+          "uw_ctl/q0_active",
+          "uw_engine/q0_active"
         ]
       },
       "uw_fetcher_0_uw_host_free": {
@@ -3468,8 +3484,8 @@
       "uw_fetcher_1_q_active": {
         "ports": [
           "q1_fetcher/q_active",
-          "uw_engine/q1_active",
-          "uw_ctl/q1_active"
+          "uw_ctl/q1_active",
+          "uw_engine/q1_active"
         ]
       },
       "uw_fetcher_1_uw_host_free": {
