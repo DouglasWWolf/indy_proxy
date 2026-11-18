@@ -3375,22 +3375,22 @@
       <spirit:modelParameter spirit:dataType="long">
         <spirit:name>C_NUM_SEG</spirit:name>
         <spirit:displayName>C_NUM_SEG</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_SEG" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">11</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_NUM_SEG" spirit:minimum="1" spirit:maximum="256" spirit:rangeType="long">12</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="bitString">
         <spirit:name>C_SEP_WDATA_WIDTH_ARRAY</spirit:name>
         <spirit:displayName>C_SEP_WDATA_WIDTH_ARRAY</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_WDATA_WIDTH_ARRAY" spirit:bitStringLength="352">0x0000002000000020000000200000002000000020000000200000002000000020000000200000002000000020</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_WDATA_WIDTH_ARRAY" spirit:bitStringLength="384">0x000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="bitString">
         <spirit:name>C_SEP_RDATA_WIDTH_ARRAY</spirit:name>
         <spirit:displayName>C_SEP_RDATA_WIDTH_ARRAY</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_RDATA_WIDTH_ARRAY" spirit:bitStringLength="352">0x0000002000000020000000200000002000000020000000200000002000000020000000200000002000000020</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_RDATA_WIDTH_ARRAY" spirit:bitStringLength="384">0x000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000020</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="bitString">
         <spirit:name>C_SEP_PROTOCOL_ARRAY</spirit:name>
         <spirit:displayName>C_SEP_PROTOCOL_ARRAY</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_PROTOCOL_ARRAY" spirit:bitStringLength="352">0x0000000200000002000000020000000200000002000000020000000200000002000000020000000200000002</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SEP_PROTOCOL_ARRAY" spirit:bitStringLength="384">0x000000020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="long">
         <spirit:name>C_NUM_MSC</spirit:name>
@@ -3562,7 +3562,7 @@
     <spirit:parameter>
       <spirit:name>NUM_SEG</spirit:name>
       <spirit:displayName>NUM_SEG</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_SEG" spirit:order="14" spirit:minimum="0" spirit:maximum="256" spirit:rangeType="long">11</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.NUM_SEG" spirit:order="14" spirit:minimum="0" spirit:maximum="256" spirit:rangeType="long">12</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ADDR_WIDTH</spirit:name>
@@ -3822,7 +3822,7 @@
     <spirit:parameter>
       <spirit:name>SEP011_PROTOCOL</spirit:name>
       <spirit:displayName>SEP011_PROTOCOL</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.SEP011_PROTOCOL" spirit:choiceRef="choice_list_7235ff92">AXI4</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.SEP011_PROTOCOL" spirit:choiceRef="choice_list_7235ff92">AXI4LITE</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SEP012_RDATA_WIDTH</spirit:name>
@@ -10189,6 +10189,9 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP010_PROTOCOL" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP010_RDATA_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP010_WDATA_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP011_PROTOCOL" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP011_RDATA_WIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SEP011_WDATA_WIDTH" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SINGLE_ISSUING" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.SUPPORTS_NARROW" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S_RUSER_BITS_PER_BYTE" xilinx:valueSource="user"/>

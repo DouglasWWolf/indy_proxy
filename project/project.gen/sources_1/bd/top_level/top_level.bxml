@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="43">
   <CompositeFile CompositeFileTopName="top_level" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1794903575"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1794903575"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1794903575"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1794903575"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1794972101"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1794972101"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1794972101"/>
+    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1794972101"/>
     <FileCollection Name="SOURCES" Type="SOURCES"/>
     <BlockContainerCollection>
       <BlockContainer InstPath="/mindy_core" IsPR="false" State="Validated">
@@ -38,6 +38,20 @@
       </BlockContainer>
     </BlockContainerCollection>
     <ReferenceCollection>
+      <ModuleReference TargetName="mindy_core" Type="Block Design" SubInstancePath="top_level_mindy_core_0">
+        <TopFile Name="../../../../../bdc/sources_1/bd/mindy_core/mindy_core.bd"/>
+        <FileCollection>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_shim.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/ping_ponger.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/mindy_if.v"/>
+          <File Name="../../../../src/common/axi4_lite_slave.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/mindy_core_ctl.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit_be.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit_fe.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit.v"/>
+          <File Name="../../../../../bdc/sources_1/bd/mindy_core/mindy_core.bd"/>
+        </FileCollection>
+      </ModuleReference>
       <ModuleReference TargetName="abm_and_smem" Type="Block Design" SubInstancePath="top_level_abm_and_smem_0">
         <TopFile Name="../../../../../bdc/sources_1/bd/abm_and_smem/abm_and_smem.bd"/>
         <FileCollection>
@@ -111,20 +125,6 @@
           <File Name="../../../../src/common/axis_slice.v"/>
           <File Name="../../../../../bdc/sources_1/bd/userwave/src/uw_md_cdc.v"/>
           <File Name="../../../../../bdc/sources_1/bd/userwave/userwave.bd"/>
-        </FileCollection>
-      </ModuleReference>
-      <ModuleReference TargetName="mindy_core" Type="Block Design" SubInstancePath="top_level_mindy_core_0">
-        <TopFile Name="../../../../../bdc/sources_1/bd/mindy_core/mindy_core.bd"/>
-        <FileCollection>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_shim.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/ping_ponger.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/mindy_if.v"/>
-          <File Name="../../../../src/common/axi4_lite_slave.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/mindy_core_ctl.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit_be.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit_fe.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/src/rdmx_xmit.v"/>
-          <File Name="../../../../../bdc/sources_1/bd/mindy_core/mindy_core.bd"/>
         </FileCollection>
       </ModuleReference>
     </ReferenceCollection>

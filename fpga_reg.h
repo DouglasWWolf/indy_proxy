@@ -870,6 +870,24 @@
 
 
 //
+// Register:    REG_FPGA_FAN
+// Size:        32-bits
+// Type:        Read only
+// Description: The tachometer count for the FPGA fan
+//
+#define REG_FPGA_FAN                                                 0x0000000000001900ULL
+
+
+//
+// Register:    REG_PCB_FAN
+// Size:        32-bits
+// Type:        Read only
+// Description: The tachometer count for the PCB fan
+//
+#define REG_PCB_FAN                                                  0x0000000000001904ULL
+
+
+//
 // Register:    CHIP_REF_CLOCK
 // Size:        32-bits
 // Type:        Read only

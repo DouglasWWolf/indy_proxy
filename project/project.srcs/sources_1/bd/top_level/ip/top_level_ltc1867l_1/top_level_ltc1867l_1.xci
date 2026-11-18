@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "top_level_ltc1867l_1",
-    "cell_name": "misc/adc_bank1/ltc1867l",
+    "cell_name": "misc/dig_adc_bank/ltc1867l",
     "component_reference": "xilinx.com:module_ref:ltc1867l:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../project.gen/sources_1/bd/top_level/ip/top_level_ltc1867l_1",

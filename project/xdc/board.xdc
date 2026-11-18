@@ -71,6 +71,15 @@ set_property -dict {PACKAGE_PIN AN12  IOSTANDARD LVCMOS18} [ get_ports qsfp_lp[0
 set_property -dict {PACKAGE_PIN AM13  IOSTANDARD LVCMOS18} [ get_ports qsfp_lp[1] ]
 
 
+
+#
+# Fan tachometers
+#
+set_property -dict {PACKAGE_PIN N15  IOSTANDARD LVCMOS18} [ get_ports FPGA_FAN_TACH ]
+set_property -dict {PACKAGE_PIN AT14 IOSTANDARD LVCMOS18} [ get_ports PCB_FAN_TACH  ]
+
+
+
 #
 #  Sensor chip power rail enables
 #
