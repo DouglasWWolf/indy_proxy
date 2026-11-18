@@ -1,0 +1,43 @@
+source api
+
+fetch_adc()
+{
+    local adc=$1
+    local channel=$2
+    local address=$((UCI_ADC + $adc*32 + $channel*4))
+    pcireg -dec $address
+}
+
+
+
+printf "PELLET        : 0x%04X\n" $(fetch_adc 0 0)
+printf "VDD_SENSE     : 0x%04X\n" $(fetch_adc 0 1)
+printf "VDD_I         : 0x%04X\n" $(fetch_adc 0 2)
+printf "AMUXOUT7B     : 0x%04X\n" $(fetch_adc 0 3)
+printf "LIQ_FB        : 0x%04X\n" $(fetch_adc 0 4)
+printf "VPRE2         : 0x%04X\n" $(fetch_adc 0 5)
+printf "AMUXOUT7      : 0x%04X\n" $(fetch_adc 0 6)
+printf "VB            : 0x%04X\n" $(fetch_adc 0 7)
+
+echo
+printf "VPRE1         : 0x%04X\n" $(fetch_adc 1 0)
+printf "VDDA_SENSE    : 0x%04X\n" $(fetch_adc 1 1)
+printf "VDDLVDS_SENSE : 0x%04X\n" $(fetch_adc 1 2)
+printf "VDD33_CHIP    : 0x%04X\n" $(fetch_adc 1 3)
+printf "VDD33_I       : 0x%04X\n" $(fetch_adc 1 4)
+printf "VDDOTP        : 0x%04X\n" $(fetch_adc 1 5)
+printf "VDDLVDS_I     : 0x%04X\n" $(fetch_adc 1 6)
+printf "REFN          : 0x%04X\n" $(fetch_adc 1 7)
+
+echo
+printf "REFP          : 0x%04X\n" $(fetch_adc 2 0)
+printf "VDDA_I        : 0x%04X\n" $(fetch_adc 2 1)
+printf "LIQ_I         : 0x%04X\n" $(fetch_adc 2 2)
+printf "unused        : 0x%04X\n" $(fetch_adc 2 3)
+printf "RES_MEAS_SNS  : 0x%04X\n" $(fetch_adc 2 4)
+printf "unused        : 0x%04X\n" $(fetch_adc 2 5)
+printf "unused        : 0x%04X\n" $(fetch_adc 2 6)
+printf "unused        : 0x%04X\n" $(fetch_adc 2 7)
+
+         
+       

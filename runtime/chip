@@ -42,7 +42,7 @@ fetch_adc()
 {
     local adc=$1
     local channel=$2
-    local address=$((REG_CHIP_PWR_ADC + $adc*32 + $channel*4))
+    local address=$((UCI_ADC + $adc*32 + $channel*4))
     get  $address
 }
 
