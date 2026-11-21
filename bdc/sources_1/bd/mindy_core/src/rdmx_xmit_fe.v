@@ -10,6 +10,9 @@
 //                       Removed obsolete signal "addr_fifo_debug"
 //
 // 26-Mar-25  DWW     3  Added missing port S_AXI_ARSIZE
+//
+// 12-Aug-26  DWW     4  Changed UW from 40 to 56, to make room for the new 
+//                       "udp_dst_port" signal that we carry in user data
 //====================================================================================
 
 /*
@@ -32,12 +35,11 @@ module rdmx_xmit_fe #
     parameter AW = 64,
 
     // The width of the additional user-data
-    parameter UW = 40
+    parameter UW = 56
 
 ) 
 (
     input clk, resetn,
-
    
     //=================  This is the main AXI4-slave interface  ================
     
@@ -117,6 +119,12 @@ module rdmx_xmit_fe #
     //==========================================================================
 );
 
+// No one reads data from us on the S_AXI interface
+assign S_AXI_ARREADY = 0;
+assign S_AXI_RDATA   = 0; 
+assign S_AXI_RVALID  = 0;  
+assign S_AXI_RRESP   = 0; 
+assign S_AXI_RLAST   = 0;  
 
 //=============================================================================
 // This block counts the number of one bits in S_AXI_WSTRB, thereby determining

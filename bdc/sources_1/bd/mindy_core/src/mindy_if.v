@@ -8,8 +8,6 @@
 //
 // 08-May-24  DWW     2  Now forcing TREADY and TVALID low signals to deassert
 //                       when resetn is asserted 
-//
-// 09-Apr-26  DWW     3  Added X_INTERFACE declarations
 //=============================================================================
 
 /*
@@ -33,10 +31,7 @@ module mindy_if #
     parameter MD_FIFO_TYPE = "distributed"
 )
 (
-    (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-    (* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF AXIS_FD_IN:AXIS_FD_OUT:AXIS_MD_IN:AXIS_MD0_OUT:AXIS_MD1_OUT, ASSOCIATED_RESET resetn" *)
-    input   clk,
-    input   resetn,
+    input clk, resetn,
 
     //==========================================================================
     //                   Input stream of frame data 

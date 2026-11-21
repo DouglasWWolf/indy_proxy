@@ -40,7 +40,7 @@ reg[15:0] edge_counter;
 //-----------------------------------------------------------------------------
 always @(posedge clk) begin
 
-    if (timer === FREQ_HZ) begin
+    if (timer == FREQ_HZ) begin
         tach_count   <= edge_counter;
         edge_counter <= 0;
         timer        <= 0;

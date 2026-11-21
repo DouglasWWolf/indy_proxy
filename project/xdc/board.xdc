@@ -1,4 +1,24 @@
 
+#
+# Bitstream and other physical configuration options
+#
+set_property BITSTREAM.GENERAL.COMPRESS true [current_design]
+
+
+# Configure with x4 width SPI
+set_property CONFIG_MODE SPIx4                   [current_design]
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4     [current_design]
+set_property BITSTREAM.CONFIG.SPI_32BIT_ADDR YES [current_design]
+set_property BITSTREAM.CONFIG.SPI_FALL_EDGE YES  [current_design]
+
+# Use external clock to load bit file from flash
+set_property BITSTREAM.CONFIG.EXTMASTERCCLK_EN DIV-1 [current_design]
+
+# Configuration bank voltage settings
+set_property CFGBVS GND         [current_design]
+set_property CONFIG_VOLTAGE 1.8 [current_design]
+
+
 # ---------------------------------------------------------------------------
 # Pin definitions
 # ---------------------------------------------------------------------------
@@ -127,6 +147,15 @@ set_property -dict {PACKAGE_PIN AL17 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_CSN
 set_property -dict {PACKAGE_PIN AU14 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_MISO  ];
 set_property -dict {PACKAGE_PIN AT12 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_MOSI  ];
 set_property -dict {PACKAGE_PIN AN16 IOSTANDARD LVCMOS18} [get_ports AUX_ADC_SCK   ];
+
+
+#
+# The LIQI ADC Bus - contains 1 LTC-2365
+#
+set_property -dict {PACKAGE_PIN J17  IOSTANDARD LVCMOS18} [ get_ports LIQI_CSN ]
+set_property -dict {PACKAGE_PIN B17  IOSTANDARD LVCMOS18} [ get_ports LIQI_SCK ]
+set_property -dict {PACKAGE_PIN AP13 IOSTANDARD LVCMOS18} [ get_ports LIQI_SDO ]
+
 
 
 #

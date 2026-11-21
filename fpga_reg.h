@@ -201,7 +201,7 @@
 //
 // Register:    MC_FRAME_COUNT_0
 // Size:        32-bits
-// Type:        Read/Write
+// Type:        Read only
 // Description: Number of frames transmitted on channel 0
 //
 #define MC_FRAME_COUNT_0                                             0x000000000000113cULL
@@ -210,10 +210,68 @@
 //
 // Register:    MC_FRAME_COUNT_1
 // Size:        32-bits
-// Type:        Read/Write
+// Type:        Read only
 // Description: Number of frames transmitted on channel 0
 //
 #define MC_FRAME_COUNT_1                                             0x0000000000001140ULL
+
+
+//
+// Register:    MC_MD_UDP_PORT
+// Size:        32-bits
+// Type:        Read/Write
+// Description: UDP destination port for metadata packets
+//
+#define MC_MD_UDP_PORT                                               0x0000000000001144ULL
+
+
+//
+// Register:    MC_FC_UDP_PORT
+// Size:        32-bits
+// Type:        Read/Write
+// Description: UDP destination port for frame-counter packets
+//
+#define MC_FC_UDP_PORT                                               0x0000000000001148ULL
+
+
+//
+// Register:    MC_FD_UDP_PORT_BASE
+// Size:        32-bits
+// Type:        Read/Write
+// Description: UDP destination base port for frame-data packets.
+//              Actual port numbers will be FD_UDP_BASE_PORT thru
+//              FD_UDP_BASE_PORT + FD_BUCKET_COUNT - 1
+//
+#define MC_FD_UDP_PORT_BASE                                          0x000000000000114cULL
+
+
+//
+// Register:    MC_FRAMES_PER_PERIOD
+// Size:        32-bits
+// Type:        Read/Write
+// Description: The number of frames in a port-steering period
+//              Typically this is the number of frames in a bright-cycle.
+//
+#define MC_FRAMES_PER_PERIOD                                         0x0000000000001150ULL
+
+
+//
+// Register:    MC_FD_BUCKET_SIZE
+// Size:        32-bits
+// Type:        Read/Write
+// Description: How many different "buckets" are there for data-frames?
+//              Each "bucket" is associated with a different UDP destination port.
+//
+#define MC_FD_BUCKET_SIZE                                            0x0000000000001154ULL
+
+
+//
+// Register:    MC_FD_BUCKET_COUNT
+// Size:        32-bits
+// Type:        Read/Write
+// Description: How many frames will fit into a single data-frame "bucket"?
+//
+#define MC_FD_BUCKET_COUNT                                           0x0000000000001158ULL
 
 
 //
@@ -860,6 +918,60 @@
 //              This value is measured in UWC.  1 UWC is 64 bytes
 //
 #define UW_Q1_UWC_HOST_FREE                                          0x0000000000001698ULL
+
+
+//
+// Register:    UW_LIQI_MAX_SAMPLES
+// Size:        32-bits
+// Type:        Read/Write
+// Description: The maximum number of ADC samples to take during a LIQI capture
+//
+#define UW_LIQI_MAX_SAMPLES                                          0x00000000000016c0ULL
+
+
+//
+// Register:    UW_LIQI_SAMPLE_PERIOD
+// Size:        32-bits
+// Type:        Read/Write
+// Description: the LIQI sampling period, in microseconds
+//
+#define UW_LIQI_SAMPLE_PERIOD                                        0x00000000000016c4ULL
+
+
+//
+// Register:    UW_LIQI_ADC
+// Size:        32-bits
+// Type:        Read only
+// Description: The current value of the LIQI ADC
+//
+#define UW_LIQI_ADC                                                  0x00000000000016c8ULL
+
+
+//
+// Register:    UW_LIQI_FIFO
+// Size:        32-bits
+// Type:        Read only
+// Description: The LIQI FIFO.   Returns 0xFFFF if FIFO is empty
+//
+#define UW_LIQI_FIFO                                                 0x00000000000016ccULL
+
+
+//
+// Register:    UW_LIQI_FIFO_COUNT
+// Size:        32-bits
+// Type:        Read only
+// Description: The number of entries in the LIQI FIFO
+//
+#define UW_LIQI_FIFO_COUNT                                           0x00000000000016d0ULL
+
+
+//
+// Register:    UW_LIQI_FIFO_OVR
+// Size:        32-bits
+// Type:        W1C
+// Description: This is 1 if the LIQI FIFO has overflowed.
+//
+#define UW_LIQI_FIFO_OVR                                             0x00000000000016d4ULL
 
 
 //

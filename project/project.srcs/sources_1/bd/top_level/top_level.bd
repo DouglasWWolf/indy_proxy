@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x435CA73583810EFC",
+      "boundary_crc": "0x8101297B9A746E0E",
       "device": "xcku15p-ffve1517-3-e",
       "gen_directory": "../../../../project.gen/sources_1/bd/top_level",
       "name": "top_level",
@@ -556,6 +556,15 @@
         "direction": "O",
         "left": "0",
         "right": "0"
+      },
+      "LIQI_SCK": {
+        "direction": "O"
+      },
+      "LIQI_CSN": {
+        "direction": "O"
+      },
+      "LIQI_SDO": {
+        "direction": "I"
       }
     },
     "components": {
@@ -5555,20 +5564,20 @@
             "ports": [
               "sys_clk",
               "eth0/sys_clk",
-              "rdmx_recv_0/clk",
               "eth_1/sys_clk",
-              "rdmx_recv_1/clk",
-              "eth_status/clk"
+              "eth_status/clk",
+              "rdmx_recv_0/clk",
+              "rdmx_recv_1/clk"
             ]
           },
           "pcie_bridge_0_axi_aresetn": {
             "ports": [
               "sys_resetn_in",
               "eth0/sys_resetn_in",
-              "rdmx_recv_0/resetn",
               "eth_1/sys_resetn_in",
-              "rdmx_recv_1/resetn",
-              "eth_status/resetn"
+              "eth_status/resetn",
+              "rdmx_recv_0/resetn",
+              "rdmx_recv_1/resetn"
             ]
           }
         }
@@ -6165,7 +6174,7 @@
         "variant_info": {
           "mindy_core.bd": {
             "scoped_diagram": "mindy_core_inst_0.bd",
-            "design_checksum": "0x9BE9D219AA8F1BA8",
+            "design_checksum": "0xEEE4989EAA8F1BA8",
             "ref_name": "mindy_core",
             "ref_subinst_path": "top_level_mindy_core_0",
             "ref_type": "Block Design",
@@ -8810,9 +8819,9 @@
               "clk_1": {
                 "ports": [
                   "clk",
+                  "misc_ctl/clk",
                   "fpga_fan_tach/clk",
-                  "pcb_fan_tach/clk",
-                  "misc_ctl/clk"
+                  "pcb_fan_tach/clk"
                 ]
               },
               "fpga_fan_tach_tach_count": {
@@ -9450,12 +9459,12 @@
             "ports": [
               "clk",
               "uci_adc_bank/clk",
-              "chip_power_ctl/clk",
               "smartconnect/aclk",
               "eeprom_iic/s_axi_aclk",
               "dig_adc_bank/clk",
               "misc/clk",
-              "aux_adc_bank/clk"
+              "aux_adc_bank/clk",
+              "chip_power_ctl/clk"
             ]
           },
           "ilconstant_0_dout": {
@@ -9486,12 +9495,12 @@
             "ports": [
               "resetn",
               "uci_adc_bank/resetn",
-              "chip_power_ctl/resetn",
               "smartconnect/aresetn",
               "eeprom_iic/s_axi_aresetn",
               "dig_adc_bank/resetn",
               "misc/resetn",
-              "aux_adc_bank/resetn"
+              "aux_adc_bank/resetn",
+              "chip_power_ctl/resetn"
             ]
           }
         }
@@ -10540,10 +10549,6 @@
           "vpretop_sw": {
             "direction": "O"
           },
-          "sys_clk": {
-            "type": "clk",
-            "direction": "I"
-          },
           "pin_aux_rs0": {
             "direction": "O"
           },
@@ -10552,6 +10557,19 @@
           },
           "disable_ncap": {
             "direction": "O"
+          },
+          "mc_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "liqi_sck": {
+            "direction": "O"
+          },
+          "liqi_csn": {
+            "direction": "O"
+          },
+          "liqi_sdo": {
+            "direction": "I"
           }
         },
         "post_compiled_compname": "userwave_inst_0",
@@ -10559,7 +10577,7 @@
         "variant_info": {
           "userwave.bd": {
             "scoped_diagram": "userwave_inst_0.bd",
-            "design_checksum": "0xCFD68F230822AA0B",
+            "design_checksum": "0x18EE3C9AD8FD3F18",
             "ref_name": "userwave",
             "ref_subinst_path": "top_level_userwave_0",
             "ref_type": "Block Design",
@@ -10921,6 +10939,12 @@
           "GPIO4"
         ]
       },
+      "liqi_sdo_1": {
+        "ports": [
+          "LIQI_SDO",
+          "uw_engine/liqi_sdo"
+        ]
+      },
       "misc_AUX_ADC_CSN": {
         "ports": [
           "misc/AUX_ADC_CSN",
@@ -11044,7 +11068,7 @@
           "mindy_core/sys_clk",
           "indy_lvds/sys_clk",
           "misc/clk",
-          "uw_engine/sys_clk"
+          "uw_engine/mc_clk"
         ]
       },
       "pcie_bridge_0_axi_aresetn": {
@@ -11165,6 +11189,18 @@
         "ports": [
           "uw_engine/disable_ncap",
           "disable_ncap"
+        ]
+      },
+      "uw_engine_liqi_csn": {
+        "ports": [
+          "uw_engine/liqi_csn",
+          "LIQI_CSN"
+        ]
+      },
+      "uw_engine_liqi_sck": {
+        "ports": [
+          "uw_engine/liqi_sck",
+          "LIQI_SCK"
         ]
       }
     },

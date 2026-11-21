@@ -5,6 +5,8 @@
 //   Date     Who   Ver  Changes
 //====================================================================================
 // 09-Apr-26  DWW     1  Initial creation
+//
+// 29-Aug-26  DWW     2  Added support for UDP port-based packet steering
 //====================================================================================
 
 /*
@@ -27,6 +29,13 @@ module mindy_core_ctl # (parameter AW = 8)
     output reg[31:0] FRAME_SIZE,
     output reg[15:0] PACKET_SIZE,
     output reg[31:0] PACKETS_PER_GROUP,
+
+    output reg[15:0] MD_UDP_PORT,
+    output reg[15:0] FC_UDP_PORT,
+    output reg[15:0] FD_UDP_PORT_BASE,
+    output reg[15:0] FRAMES_PER_PERIOD,
+    output reg[15:0] FD_BUCKET_COUNT,
+    output reg[15:0] FD_BUCKET_SIZE,
 
    //================== This is an AXI4-Lite slave interface ==================
         
@@ -129,13 +138,54 @@ localparam REG_PACKETS_PER_GROUP = 12;
 
 /*
     @register Number of frames transmitted on channel 0
+    @rtype r/o
 */
 localparam REG_FRAME_COUNT_0     = 15;
 
 /*
     @register Number of frames transmitted on channel 0
+    @rtype r/o
 */
 localparam REG_FRAME_COUNT_1     = 16;
+
+/*
+    @register UDP destination port for metadata packets
+*/
+localparam REG_MD_UDP_PORT       = 17;
+
+/*
+    @register UDP destination port for frame-counter packets
+*/
+
+localparam REG_FC_UDP_PORT       = 18;
+
+
+/*
+    @register UDP destination base port for frame-data packets.
+    @rdesc    Actual port numbers will be FD_UDP_BASE_PORT thru
+    @rdesc    FD_UDP_BASE_PORT + FD_BUCKET_COUNT - 1
+*/
+
+localparam REG_FD_UDP_PORT_BASE  = 19;
+
+/*
+    @register The number of frames in a port-steering period
+    @rdesc    Typically this is the number of frames in a bright-cycle.
+*/
+localparam REG_FRAMES_PER_PERIOD = 20;
+
+
+/*
+    @register How many different "buckets" are there for data-frames?
+    @rdesc    Each "bucket" is associated with a different UDP destination port.
+*/
+localparam REG_FD_BUCKET_SIZE    = 21;
+
+/*
+    @register How many frames will fit into a single data-frame "bucket"?
+*/
+localparam REG_FD_BUCKET_COUNT   = 22;
+
 
 //==========================================================================
 
@@ -185,9 +235,16 @@ always @(posedge clk) begin
     // If we're in reset, initialize important registers
     if (resetn == 0) begin
         ashi_write_state  <= 0;
+        MD_UDP_PORT       <= 32002;
+        FC_UDP_PORT       <= 32002;
+        FD_UDP_PORT_BASE  <= 32002;
+        FRAMES_PER_PERIOD <= 1;
+        FD_BUCKET_COUNT   <= 1;
+        FD_BUCKET_SIZE    <= 1;
+    end
 
     // If we're not in reset, and a write-request has occured...        
-    end else case (ashi_write_state)
+    else case (ashi_write_state)
         
         0:  if (ashi_write) begin
        
@@ -210,6 +267,13 @@ always @(posedge clk) begin
                     REG_FRAME_SIZE       : FRAME_SIZE        <= ashi_wdata;
                     REG_PACKET_SIZE      : PACKET_SIZE       <= ashi_wdata;
                     REG_PACKETS_PER_GROUP: PACKETS_PER_GROUP <= ashi_wdata;
+
+                    REG_MD_UDP_PORT      :  MD_UDP_PORT       <= ashi_wdata;
+                    REG_FC_UDP_PORT      :  FC_UDP_PORT       <= ashi_wdata;
+                    REG_FD_UDP_PORT_BASE :  FD_UDP_PORT_BASE  <= ashi_wdata;  
+                    REG_FRAMES_PER_PERIOD:  FRAMES_PER_PERIOD <= ashi_wdata;
+                    REG_FD_BUCKET_COUNT  :  FD_BUCKET_COUNT   <= ashi_wdata;
+                    REG_FD_BUCKET_SIZE   :  FD_BUCKET_SIZE    <= ashi_wdata;
 
                     // Writes to any other register are a decode-error
                     default: ashi_wresp <= DECERR;
@@ -261,6 +325,15 @@ always @(posedge clk) begin
             REG_PACKETS_PER_GROUP : ashi_rdata <= PACKETS_PER_GROUP;
             REG_FRAME_COUNT_0     : ashi_rdata <= FRAME_COUNT_0;
             REG_FRAME_COUNT_1     : ashi_rdata <= FRAME_COUNT_1;
+
+            REG_MD_UDP_PORT       : ashi_rdata <= MD_UDP_PORT      ;
+            REG_FC_UDP_PORT       : ashi_rdata <= FC_UDP_PORT      ;
+            REG_FD_UDP_PORT_BASE  : ashi_rdata <= FD_UDP_PORT_BASE ;  
+            REG_FRAMES_PER_PERIOD : ashi_rdata <= FRAMES_PER_PERIOD;
+            REG_FD_BUCKET_COUNT   : ashi_rdata <= FD_BUCKET_COUNT  ;
+            REG_FD_BUCKET_SIZE    : ashi_rdata <= FD_BUCKET_SIZE   ;
+
+
 
             // Reads of any other register are a decode-error
             default: ashi_rresp <= DECERR;

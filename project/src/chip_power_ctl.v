@@ -274,7 +274,7 @@ always @(posedge clk) begin
 
         14: if (sleep == 0) begin
                 lvl_trsl_oe_n    <= LEVELSHIFT_ENABLED;
-                chip_enable[0]   <= 1;;
+                chip_enable[0]   <= 1;
                 chip_power_state <= 1;
                 cpsm_state       <= 0;
             end

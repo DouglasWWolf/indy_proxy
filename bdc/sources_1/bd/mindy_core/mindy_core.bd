@@ -709,6 +709,36 @@
             "direction": "O",
             "left": "31",
             "right": "0"
+          },
+          "MD_UDP_PORT": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FC_UDP_PORT": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_UDP_PORT_BASE": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_BUCKET_COUNT": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FRAMES_PER_PERIOD": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_BUCKET_SIZE": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
           }
         },
         "components": {
@@ -880,8 +910,8 @@
                     "value_src": "constant"
                   },
                   "AWUSER_WIDTH": {
-                    "value": "40",
-                    "value_src": "constant"
+                    "value": "56",
+                    "value_src": "auto"
                   },
                   "ARUSER_WIDTH": {
                     "value": "0",
@@ -1022,7 +1052,7 @@
                   "AWUSER": {
                     "physical_name": "M_AXI_AWUSER",
                     "direction": "O",
-                    "left": "39",
+                    "left": "55",
                     "right": "0"
                   },
                   "AWVALID": {
@@ -1223,6 +1253,36 @@
               "FC_ADDR": {
                 "direction": "I",
                 "left": "63",
+                "right": "0"
+              },
+              "MD_UDP_PORT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FC_UDP_PORT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_UDP_PORT_BASE": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FRAMES_PER_PERIOD": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_BUCKET_COUNT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_BUCKET_SIZE": {
+                "direction": "I",
+                "left": "15",
                 "right": "0"
               },
               "eof": {
@@ -1406,8 +1466,8 @@
                     "value_src": "constant"
                   },
                   "AWUSER_WIDTH": {
-                    "value": "40",
-                    "value_src": "constant"
+                    "value": "56",
+                    "value_src": "auto"
                   },
                   "ARUSER_WIDTH": {
                     "value": "0",
@@ -1548,7 +1608,7 @@
                   "AWUSER": {
                     "physical_name": "M_AXI_AWUSER",
                     "direction": "O",
-                    "left": "39",
+                    "left": "55",
                     "right": "0"
                   },
                   "AWVALID": {
@@ -1751,6 +1811,36 @@
                 "left": "63",
                 "right": "0"
               },
+              "MD_UDP_PORT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FC_UDP_PORT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_UDP_PORT_BASE": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FRAMES_PER_PERIOD": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_BUCKET_COUNT": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "FD_BUCKET_SIZE": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
               "eof": {
                 "direction": "O"
               }
@@ -1811,6 +1901,27 @@
               "rdmx_shim_1/FC_ADDR"
             ]
           },
+          "FC_UDP_PORT_1": {
+            "ports": [
+              "FC_UDP_PORT",
+              "rdmx_shim_1/FC_UDP_PORT",
+              "rdmx_shim_0/FC_UDP_PORT"
+            ]
+          },
+          "FD_BUCKET_COUNT_1": {
+            "ports": [
+              "FD_BUCKET_COUNT",
+              "rdmx_shim_1/FD_BUCKET_COUNT",
+              "rdmx_shim_0/FD_BUCKET_COUNT"
+            ]
+          },
+          "FD_BUCKET_SIZE_1": {
+            "ports": [
+              "FD_BUCKET_SIZE",
+              "rdmx_shim_1/FD_BUCKET_SIZE",
+              "rdmx_shim_0/FD_BUCKET_SIZE"
+            ]
+          },
           "FD_RING_ADDR_1": {
             "ports": [
               "FD_RING_ADDR",
@@ -1823,6 +1934,20 @@
               "FD_RING_SIZE",
               "rdmx_shim_0/FD_RING_SIZE",
               "rdmx_shim_1/FD_RING_SIZE"
+            ]
+          },
+          "FD_UDP_PORT_BASE_1": {
+            "ports": [
+              "FD_UDP_PORT_BASE",
+              "rdmx_shim_1/FD_UDP_PORT_BASE",
+              "rdmx_shim_0/FD_UDP_PORT_BASE"
+            ]
+          },
+          "FRAMES_PER_PERIOD_1": {
+            "ports": [
+              "FRAMES_PER_PERIOD",
+              "rdmx_shim_1/FRAMES_PER_PERIOD",
+              "rdmx_shim_0/FRAMES_PER_PERIOD"
             ]
           },
           "FRAME_SIZE_1": {
@@ -1844,6 +1969,13 @@
               "MD_RING_SIZE",
               "rdmx_shim_0/MD_RING_SIZE",
               "rdmx_shim_1/MD_RING_SIZE"
+            ]
+          },
+          "MD_UDP_PORT_1": {
+            "ports": [
+              "MD_UDP_PORT",
+              "rdmx_shim_1/MD_UDP_PORT",
+              "rdmx_shim_0/MD_UDP_PORT"
             ]
           },
           "PACKET_SIZE_1": {
@@ -2478,7 +2610,7 @@
             "direction": "I",
             "parameters": {
               "ASSOCIATED_BUSIF": {
-                "value": "AXIS_FD_IN:AXIS_FD_OUT:AXIS_MD_IN:AXIS_MD0_OUT:AXIS_MD1_OUT",
+                "value": "AXIS_FD_IN:AXIS_FD_OUT:AXIS_MD0_OUT:AXIS_MD1_OUT:AXIS_MD_IN",
                 "value_src": "constant"
               },
               "ASSOCIATED_RESET": {
@@ -2822,6 +2954,36 @@
             "direction": "O",
             "left": "31",
             "right": "0"
+          },
+          "MD_UDP_PORT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "FC_UDP_PORT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_UDP_PORT_BASE": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "FRAMES_PER_PERIOD": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_BUCKET_COUNT": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "FD_BUCKET_SIZE": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
         }
       },
@@ -2941,7 +3103,7 @@
                 "value_src": "auto"
               },
               "AWUSER_WIDTH": {
-                "value": "40",
+                "value": "56",
                 "value_src": "auto"
               },
               "ARUSER_WIDTH": {
@@ -3078,7 +3240,7 @@
               "AWUSER": {
                 "physical_name": "S_AXI_AWUSER",
                 "direction": "I",
-                "left": "39",
+                "left": "55",
                 "right": "0"
               },
               "AWVALID": {
@@ -3386,7 +3548,7 @@
                 "value_src": "auto"
               },
               "AWUSER_WIDTH": {
-                "value": "40",
+                "value": "56",
                 "value_src": "auto"
               },
               "ARUSER_WIDTH": {
@@ -3523,7 +3685,7 @@
               "AWUSER": {
                 "physical_name": "S_AXI_AWUSER",
                 "direction": "I",
-                "left": "39",
+                "left": "55",
                 "right": "0"
               },
               "AWVALID": {
@@ -3846,6 +4008,42 @@
           "rdmx_shim/MD_RING_SIZE"
         ]
       },
+      "mindy_core_ctl_FC_UDP_PORT": {
+        "ports": [
+          "mindy_core_ctl/FC_UDP_PORT",
+          "rdmx_shim/FC_UDP_PORT"
+        ]
+      },
+      "mindy_core_ctl_FD_BUCKET_COUNT": {
+        "ports": [
+          "mindy_core_ctl/FD_BUCKET_COUNT",
+          "rdmx_shim/FD_BUCKET_COUNT"
+        ]
+      },
+      "mindy_core_ctl_FD_BUCKET_SIZE": {
+        "ports": [
+          "mindy_core_ctl/FD_BUCKET_SIZE",
+          "rdmx_shim/FD_BUCKET_SIZE"
+        ]
+      },
+      "mindy_core_ctl_FD_UDP_PORT_BASE": {
+        "ports": [
+          "mindy_core_ctl/FD_UDP_PORT_BASE",
+          "rdmx_shim/FD_UDP_PORT_BASE"
+        ]
+      },
+      "mindy_core_ctl_FRAMES_PER_PERIOD": {
+        "ports": [
+          "mindy_core_ctl/FRAMES_PER_PERIOD",
+          "rdmx_shim/FRAMES_PER_PERIOD"
+        ]
+      },
+      "mindy_core_ctl_MD_UDP_PORT": {
+        "ports": [
+          "mindy_core_ctl/MD_UDP_PORT",
+          "rdmx_shim/MD_UDP_PORT"
+        ]
+      },
       "mindy_core_ctl_PACKETS_PER_GROUP": {
         "ports": [
           "mindy_core_ctl/PACKETS_PER_GROUP",
@@ -3869,9 +4067,9 @@
           "sys_clk",
           "rdmx_shim/sys_clk",
           "ping_ponger/clk",
-          "rdmx_xmit_1/src_clk",
-          "rdmx_xmit_0/src_clk",
           "mindy_if/clk",
+          "rdmx_xmit_0/src_clk",
+          "rdmx_xmit_1/src_clk",
           "mindy_core_ctl/clk"
         ]
       },
@@ -3880,9 +4078,9 @@
           "sys_resetn",
           "rdmx_shim/sys_resetn",
           "ping_ponger/resetn",
-          "rdmx_xmit_1/src_resetn",
-          "rdmx_xmit_0/src_resetn",
           "mindy_if/resetn",
+          "rdmx_xmit_0/src_resetn",
+          "rdmx_xmit_1/src_resetn",
           "mindy_core_ctl/resetn"
         ]
       }

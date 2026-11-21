@@ -682,7 +682,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>AWUSER_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.AWUSER_WIDTH">40</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.AWUSER_WIDTH">56</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -1024,7 +1024,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.UW&apos;)) - 1)">39</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.UW&apos;)) - 1)">55</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1693,7 +1693,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>UW</spirit:name>
         <spirit:displayName>Uw</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.UW">40</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.UW">56</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>FIFO_CLOCK_MODE</spirit:name>
@@ -1751,11 +1751,6 @@
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SOURCE_PORT">1000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
-        <spirit:name>REMOTE_SERVER_PORT</spirit:name>
-        <spirit:displayName>Remote Server Port</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REMOTE_SERVER_PORT">32002</spirit:value>
-      </spirit:modelParameter>
-      <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>MAX_PACKET_COUNT</spirit:name>
         <spirit:displayName>Max Packet Count</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MAX_PACKET_COUNT">256</spirit:value>
@@ -1789,7 +1784,7 @@
     <spirit:parameter>
       <spirit:name>UW</spirit:name>
       <spirit:displayName>Uw</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.UW">40</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.UW">56</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>FIFO_CLOCK_MODE</spirit:name>
@@ -1845,11 +1840,6 @@
       <spirit:name>SOURCE_PORT</spirit:name>
       <spirit:displayName>Source Port</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SOURCE_PORT">1000</spirit:value>
-    </spirit:parameter>
-    <spirit:parameter>
-      <spirit:name>REMOTE_SERVER_PORT</spirit:name>
-      <spirit:displayName>Remote Server Port</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.REMOTE_SERVER_PORT">32002</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MAX_PACKET_COUNT</spirit:name>

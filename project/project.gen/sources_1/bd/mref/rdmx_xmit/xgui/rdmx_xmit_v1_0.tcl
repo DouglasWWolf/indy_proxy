@@ -12,7 +12,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "DW" -parent ${Page_0}
   ipgui::add_param $IPINST -name "FIFO_CLOCK_MODE" -parent ${Page_0}
   ipgui::add_param $IPINST -name "MAX_PACKET_COUNT" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "REMOTE_SERVER_PORT" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SOURCE_PORT" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SRC_IP0" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SRC_IP1" -parent ${Page_0}
@@ -102,15 +101,6 @@ proc update_PARAM_VALUE.MAX_PACKET_COUNT { PARAM_VALUE.MAX_PACKET_COUNT } {
 
 proc validate_PARAM_VALUE.MAX_PACKET_COUNT { PARAM_VALUE.MAX_PACKET_COUNT } {
 	# Procedure called to validate MAX_PACKET_COUNT
-	return true
-}
-
-proc update_PARAM_VALUE.REMOTE_SERVER_PORT { PARAM_VALUE.REMOTE_SERVER_PORT } {
-	# Procedure called to update REMOTE_SERVER_PORT when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.REMOTE_SERVER_PORT { PARAM_VALUE.REMOTE_SERVER_PORT } {
-	# Procedure called to validate REMOTE_SERVER_PORT
 	return true
 }
 
@@ -246,11 +236,6 @@ proc update_MODELPARAM_VALUE.DST_IP3 { MODELPARAM_VALUE.DST_IP3 PARAM_VALUE.DST_
 proc update_MODELPARAM_VALUE.SOURCE_PORT { MODELPARAM_VALUE.SOURCE_PORT PARAM_VALUE.SOURCE_PORT } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.SOURCE_PORT}] ${MODELPARAM_VALUE.SOURCE_PORT}
-}
-
-proc update_MODELPARAM_VALUE.REMOTE_SERVER_PORT { MODELPARAM_VALUE.REMOTE_SERVER_PORT PARAM_VALUE.REMOTE_SERVER_PORT } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.REMOTE_SERVER_PORT}] ${MODELPARAM_VALUE.REMOTE_SERVER_PORT}
 }
 
 proc update_MODELPARAM_VALUE.MAX_PACKET_COUNT { MODELPARAM_VALUE.MAX_PACKET_COUNT PARAM_VALUE.MAX_PACKET_COUNT } {
