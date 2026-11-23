@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x10DD3C97EEDA5462",
+      "boundary_crc": "0x97324C09BD0A0801",
       "design_src": "SBD",
       "device": "xcku15p-ffve1517-3-e",
       "name": "bd_3498",
@@ -509,7 +509,7 @@
         "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
         "parameters": {
           "ADDR_WIDTH": {
-            "value": "9",
+            "value": "8",
             "value_src": "ip_prop"
           },
           "ARUSER_WIDTH": {
@@ -554,7 +554,7 @@
           },
           "HAS_PROT": {
             "value": "1",
-            "value_src": "default_prop"
+            "value_src": "default"
           },
           "HAS_QOS": {
             "value": "0",
@@ -6729,7 +6729,7 @@
         "inst_hier_path": "m02_sc2axi",
         "parameters": {
           "AXI_ADDR_WIDTH": {
-            "value": "9"
+            "value": "8"
           },
           "AXI_ID_WIDTH": {
             "value": "1"
@@ -7762,7 +7762,7 @@
             "inst_hier_path": "m02_exit_pipeline/m02_exit",
             "parameters": {
               "ADDR_WIDTH": {
-                "value": "9"
+                "value": "8"
               },
               "ENABLE_PIPELINING": {
                 "value": "0"

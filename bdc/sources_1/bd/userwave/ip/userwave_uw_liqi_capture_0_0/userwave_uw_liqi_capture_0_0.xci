@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "userwave_uw_liqi_capture_0_0",
-    "cell_name": "uw_liqi_capture",
+    "cell_name": "liqi_capture/uw_liqi_capture",
     "component_reference": "xilinx.com:module_ref:uw_liqi_capture:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../project.gen/sources_1/bd/userwave/ip/userwave_uw_liqi_capture_0_0",
