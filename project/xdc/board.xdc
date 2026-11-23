@@ -198,10 +198,19 @@ set_property -dict {PACKAGE_PIN B16    IOSTANDARD LVCMOS18} [get_ports uw_dac_sp
 
 
 #
-# I2C M24C04 EEPROM signals
+# M24C04 EEPROM I2C signals
 #
 set_property -dict { PACKAGE_PIN R14 IOSTANDARD LVCMOS18 } [get_ports EEPROM_scl_io ];
 set_property -dict { PACKAGE_PIN R13 IOSTANDARD LVCMOS18 } [get_ports EEPROM_sda_io ];
+
+#
+# NCT72D Temperature sensor signals
+#
+set_property -dict { PACKAGE_PIN AK28 IOSTANDARD LVCMOS18 } [get_ports NCT72D_0_scl_io ];
+set_property -dict { PACKAGE_PIN AJ26 IOSTANDARD LVCMOS18 } [get_ports NCT72D_0_sda_io ];
+set_property -dict { PACKAGE_PIN AK18 IOSTANDARD LVCMOS18 } [get_ports NCT72D_1_scl_io ];
+set_property -dict { PACKAGE_PIN AK19 IOSTANDARD LVCMOS18 } [get_ports NCT72D_1_sda_io ];
+
 
 
 

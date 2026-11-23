@@ -1,0 +1,42 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-433,-577",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port NCT72D_0 -pg 1 -lvl 3 -x 680 -y 60 -defaultsOSRD
+preplace port NCT72D_1 -pg 1 -lvl 3 -x 680 -y 250 -defaultsOSRD
+preplace port S_AXI -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace inst nct72d_0 -pg 1 -lvl 2 -x 530 -y 40 -swap {0 1 2 3 4 5 6 12 7 8 9 10 11} -defaultsOSRD -pinDir IIC right -pinY IIC 20R -pinDir clk left -pinY clk 120L -pinDir resetn left -pinY resetn 20L -pinBusDir error left -pinBusY error 40L -pinBusDir internal_temp left -pinBusY internal_temp 60L -pinBusDir external_temp left -pinBusY external_temp 80L -pinBusDir clear_error_stb left -pinBusY clear_error_stb 100L
+preplace inst nct72d_1 -pg 1 -lvl 2 -x 530 -y 230 -swap {0 1 2 3 4 5 6 12 7 8 11 9 10} -defaultsOSRD -pinDir IIC right -pinY IIC 20R -pinDir clk left -pinY clk 120L -pinDir resetn left -pinY resetn 20L -pinBusDir error left -pinBusY error 40L -pinBusDir internal_temp left -pinBusY internal_temp 100L -pinBusDir external_temp left -pinBusY external_temp 60L -pinBusDir clear_error_stb left -pinBusY clear_error_stb 80L
+preplace inst tec_ctl -pg 1 -lvl 1 -x 210 -y 60 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 23 29 24 27 22 26 25 28} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L -pinBusDir internal_temp_0 right -pinBusY internal_temp_0 40R -pinBusDir internal_temp_1 right -pinBusY internal_temp_1 270R -pinBusDir external_temp_0 right -pinBusY external_temp_0 60R -pinBusDir external_temp_1 right -pinBusY external_temp_1 230R -pinBusDir sensor_err_0 right -pinBusY sensor_err_0 20R -pinBusDir sensor_err_1 right -pinBusY sensor_err_1 210R -pinBusDir clear_sensor_err_stb_0 right -pinBusY clear_sensor_err_stb_0 80R -pinBusDir clear_sensor_err_stb_1 right -pinBusY clear_sensor_err_stb_1 250R
+preplace netloc clk_1 1 0 2 20 390 400
+preplace netloc resetn_1 1 0 2 40 20 380
+preplace netloc nct72d_0_internal_temp 1 1 1 N 100
+preplace netloc nct72d_1_internal_temp 1 1 1 N 330
+preplace netloc nct72d_0_external_temp 1 1 1 N 120
+preplace netloc nct72d_1_external_temp 1 1 1 N 290
+preplace netloc nct72d_0_error 1 1 1 N 80
+preplace netloc nct72d_1_error 1 1 1 N 270
+preplace netloc tec_ctl_clear_sensor_err_stb_0 1 1 1 N 140
+preplace netloc tec_ctl_clear_sensor_err_stb_1 1 1 1 N 310
+preplace netloc axi_iic_0_IIC 1 2 1 NJ 60
+preplace netloc nct72d_1_IIC 1 2 1 NJ 250
+preplace netloc S_AXI_1 1 0 1 NJ 80
+levelinfo -pg 1 0 210 530 680
+pagesize -pg 1 -db -bbox -sgen -100 0 810 400
+",
+   "No Loops_ScaleFactor":"1.0",
+   "No Loops_TopLeft":"-349,-181",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+levelinfo -pg 1 0 10
+pagesize -pg 1 -db -bbox -sgen 0 0 10 10
+"
+}
+

@@ -1091,6 +1091,68 @@
 
 
 //
+// Register:    TEC_TS0_INT_C
+// Size:        32-bits
+// Type:        Read only
+// Description: Temp sensor 0: internal temperature
+//              In degrees C
+//
+#define TEC_TS0_INT_C                                                0x0000000000001c00ULL
+
+
+//
+// Register:    TEC_TS1_INT_C
+// Size:        32-bits
+// Type:        Read only
+// Description: Temp sensor 1: internal temperature
+//              In degrees C
+//
+#define TEC_TS1_INT_C                                                0x0000000000001c04ULL
+
+
+//
+// Register:    TEC_TS0_EXT_C
+// Size:        32-bits
+// Type:        Read only
+// Description: Temp sensor 0: external temperature
+//              In 100ths of a degree C
+//
+#define TEC_TS0_EXT_C                                                0x0000000000001c08ULL
+
+
+//
+// Register:    TEC_TS1_EXT_C
+// Size:        32-bits
+// Type:        Read only
+// Description: Temp sensor 1: external temperature
+//              In 100ths of a degree C
+//
+#define TEC_TS1_EXT_C                                                0x0000000000001c0cULL
+
+
+//
+// Register:    TEC_TS0_ERROR
+// Size:        32-bits
+// Type:        W1C
+// Description: Temp sensor 0: errors
+//              Bit 0: 1 = I2C error
+//              Bit 1: 1 = Diode error
+//
+#define TEC_TS0_ERROR                                                0x0000000000001c10ULL
+
+
+//
+// Register:    TEC_TS1_ERROR
+// Size:        32-bits
+// Type:        W1C
+// Description: Temp sensor 1: errors
+//              Bit 0: 1 = I2C error
+//              Bit 1: 1 = Diode error
+//
+#define TEC_TS1_ERROR                                                0x0000000000001c14ULL
+
+
+//
 // Register:    CHIP_REF_CLOCK
 // Size:        32-bits
 // Type:        Read only

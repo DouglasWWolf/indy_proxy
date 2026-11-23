@@ -1,0 +1,46 @@
+show_temperature()
+{
+    local internal=$1
+    local external=$2
+    local err=$3
+
+    printf "   Internal Temp: "
+    if [ $((err & 1)) -ne -0 ]; then
+        printf "broken\n"
+    else
+        printf  "%u\n" $internal
+    fi
+
+    printf "   External Temp: "
+    if [ $err -ne 0 ]; then
+        printf "broken\n"
+    else 
+        local whole=$((external / 100))
+        local decimal=$((external % 100))
+        printf "%u.%02u\n" $whole $decimal
+    fi
+
+    printf "          Errors: %u\n" $err
+}
+
+if [ "$1" == "-fix" ]; then
+    shift
+    pcireg TEC_TS0_ERROR 3
+    pcireg TEC_TS1_ERROR 3
+    sleep .1
+fi
+
+internal0=$(pcireg -dec TEC_TS0_INT_C)
+external0=$(pcireg -dec TEC_TS0_EXT_C)   
+     err0=$(pcireg -dec TEC_TS0_ERROR)
+echo "Sensor 0:"
+show_temperature $internal0 $external0 $err0
+
+echo
+
+internal1=$(pcireg -dec TEC_TS1_INT_C)
+external1=$(pcireg -dec TEC_TS1_EXT_C)   
+     err1=$(pcireg -dec TEC_TS1_ERROR)
+echo "Sensor 1:"
+show_temperature $internal1 $external1 $err1
+

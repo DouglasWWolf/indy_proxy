@@ -1284,6 +1284,24 @@
             },
             "V84": {
                 "VT": "AC",
+                "BA": "0x0000000000001C00",
+                "HA": "0x0000000000001CFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI_B",
+                "MX": "/pcie_bridge/pcie_bridge",
+                "MI": "M_AXI_B",
+                "MS": "SEG_tec_ctl_reg0",
+                "MV": "xilinx.com:ip:xdma:4.1",
+                "SX": "/misc/TEC/tec_ctl",
+                "SI": "S_AXI",
+                "SS": "reg0",
+                "SV": "xilinx.com:module_ref:tec_ctl:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V85": {
+                "VT": "AC",
                 "BA": "0x0000000000002000",
                 "HA": "0x00000000000020FF",
                 "BP": "C_BASEADDR",
@@ -1300,7 +1318,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V85": {
+            "V86": {
                 "VT": "AC",
                 "BA": "0x0000000000003000",
                 "HA": "0x00000000000030FF",
@@ -1318,7 +1336,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V86": {
+            "V87": {
                 "VT": "AC",
                 "BA": "0x0000000000003000",
                 "HA": "0x00000000000030FF",
@@ -1336,7 +1354,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V87": {
+            "V88": {
                 "VT": "AC",
                 "BA": "0x0000000000004000",
                 "HA": "0x00000000000040FF",
@@ -1354,7 +1372,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V88": {
+            "V89": {
                 "VT": "AC",
                 "BA": "0x0000000000005000",
                 "HA": "0x00000000000050FF",
@@ -1372,7 +1390,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V89": {
+            "V90": {
                 "VT": "AC",
                 "BA": "0x0000000000006000",
                 "HA": "0x00000000000060FF",
@@ -1390,7 +1408,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V90": {
+            "V91": {
                 "VT": "AC",
                 "BA": "0x0000000000007000",
                 "HA": "0x00000000000070FF",
@@ -1408,7 +1426,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V91": {
+            "V92": {
                 "VT": "AC",
                 "BA": "0x0000000000009000",
                 "HA": "0x0000000000009FFF",
@@ -1426,7 +1444,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V92": {
+            "V93": {
                 "VT": "AC",
                 "BA": "0x0000000000009000",
                 "HA": "0x0000000000009FFF",
@@ -1444,7 +1462,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V93": {
+            "V94": {
                 "VT": "AC",
                 "BA": "0x0000000000010000",
                 "HA": "0x000000000001FFFF",
@@ -1462,7 +1480,43 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V94": {
+            "V95": {
+                "VT": "AC",
+                "BA": "0x40800000",
+                "HA": "0x4080FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI",
+                "MX": "/misc/TEC/nct72d_0/i2c_master",
+                "MI": "M_AXI",
+                "MS": "SEG_axi_iic_Reg",
+                "MV": "xilinx.com:module_ref:i2c_master:1.0",
+                "SX": "/misc/TEC/nct72d_0/axi_iic",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_iic:2.1",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V96": {
+                "VT": "AC",
+                "BA": "0x40800000",
+                "HA": "0x4080FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI",
+                "MX": "/misc/TEC/nct72d_1/i2c_master",
+                "MI": "M_AXI",
+                "MS": "SEG_axi_iic_Reg",
+                "MV": "xilinx.com:module_ref:i2c_master:1.0",
+                "SX": "/misc/TEC/nct72d_1/axi_iic",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_iic:2.1",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V97": {
                 "VT": "AC",
                 "BA": "0x40800000",
                 "HA": "0x4080FFFF",
@@ -1480,7 +1534,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V95": {
+            "V98": {
                 "VT": "AC",
                 "BA": "0x0000000100000000",
                 "HA": "0x00000001FFFFFFFF",
@@ -2659,136 +2713,151 @@
             },
             {
                 "src": "V84",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V84",
-                "trg": "V15",
-                "EH": "10"
-            },
-            {
-                "src": "V84",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V85",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V85",
-                "trg": "V15",
-                "EH": "10"
-            },
-            {
-                "src": "V85",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V86",
-                "trg": "V17",
-                "EH": "1302"
-            },
-            {
-                "src": "V86",
-                "trg": "V18",
-                "EH": "1914"
-            },
-            {
-                "src": "V86",
-                "trg": "V19",
-                "EH": "2030"
-            },
-            {
-                "src": "V87",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V87",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V88",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V88",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V89",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V89",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V90",
-                "trg": "V14",
-                "EH": "6"
-            },
-            {
-                "src": "V90",
-                "trg": "V15",
-                "EH": "10"
-            },
-            {
-                "src": "V90",
-                "trg": "V16",
-                "EH": "66"
-            },
-            {
-                "src": "V90",
-                "trg": "V19",
-                "EH": "2030"
-            },
-            {
-                "src": "V91",
                 "trg": "V20",
                 "EH": "45066"
             },
             {
+                "src": "V85",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V85",
+                "trg": "V15",
+                "EH": "10"
+            },
+            {
+                "src": "V85",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
+                "src": "V86",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V86",
+                "trg": "V15",
+                "EH": "10"
+            },
+            {
+                "src": "V86",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
+                "src": "V87",
+                "trg": "V17",
+                "EH": "1302"
+            },
+            {
+                "src": "V87",
+                "trg": "V18",
+                "EH": "1914"
+            },
+            {
+                "src": "V87",
+                "trg": "V19",
+                "EH": "2030"
+            },
+            {
+                "src": "V88",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V88",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
+                "src": "V89",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V89",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
+                "src": "V90",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V90",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
                 "src": "V91",
+                "trg": "V14",
+                "EH": "6"
+            },
+            {
+                "src": "V91",
+                "trg": "V15",
+                "EH": "10"
+            },
+            {
+                "src": "V91",
+                "trg": "V16",
+                "EH": "66"
+            },
+            {
+                "src": "V91",
+                "trg": "V19",
+                "EH": "2030"
+            },
+            {
+                "src": "V92",
+                "trg": "V20",
+                "EH": "45066"
+            },
+            {
+                "src": "V92",
                 "trg": "V21",
                 "EH": "49938"
             },
             {
-                "src": "V91",
+                "src": "V92",
                 "trg": "V22",
                 "EH": "70818"
             },
             {
-                "src": "V92",
+                "src": "V93",
                 "trg": "V17",
                 "EH": "1302"
             },
             {
-                "src": "V92",
+                "src": "V93",
                 "trg": "V18",
                 "EH": "1914"
             },
             {
-                "src": "V93",
+                "src": "V94",
                 "trg": "V22",
                 "EH": "70818"
             },
             {
-                "src": "V94",
+                "src": "V95",
                 "trg": "V20",
                 "EH": "45066"
             },
             {
-                "src": "V95",
+                "src": "V96",
+                "trg": "V20",
+                "EH": "45066"
+            },
+            {
+                "src": "V97",
+                "trg": "V20",
+                "EH": "45066"
+            },
+            {
+                "src": "V98",
                 "trg": "V16",
                 "EH": "66"
             }
