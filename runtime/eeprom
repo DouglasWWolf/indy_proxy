@@ -1,255 +1,85 @@
-#======================================================================
-# The registers for the Xilinx/AMX AXI_IIC IP core are documented in
-# Xilinx/AMD document PG090
-#
-#
-# These scripts read and write a MC24C04 4KBit (i.e., 512 byte) EEPROM
-# over a Xilinx AXI IIC I2C interface
-#======================================================================
-       BASE_ADDR=0x10000
-         IIC_GIE=$((BASE_ADDR + 0x1C))
-         IIC_ISR=$((BASE_ADDR + 0x20))
-         IIC_IER=$((BASE_ADDR + 0x28))
-       IIC_SOFTR=$((BASE_ADDR + 0x40))
-          IIC_CR=$((BASE_ADDR + 0x100))
-          IIC_SR=$((BASE_ADDR + 0x104))
-     IIC_TX_FIFO=$((BASE_ADDR + 0x108))   
-     IIC_RX_FIFO=$((BASE_ADDR + 0x10C))   
-         IIC_ADR=$((BASE_ADDR + 0x110))   
- IIC_TX_FIFO_OCY=$((BASE_ADDR + 0x114))      
- IIC_RX_FIFO_OCY=$((BASE_ADDR + 0x118))      
-     IIC_TEN_ADR=$((BASE_ADDR + 0x11C))  
-IIC_RX_FIFO_PIRQ=$((BASE_ADDR + 0x120))          
+source bash_registers fpga_reg.h
 
-I2C_RD=1
-I2C_WR=0
-
-I2C_START=0x100
- I2C_STOP=0x200
-
-CR_ENABLE=1
-CR_TXFIFO_RESET=2
-
-# This is the I2C address of our EEPROM
-I2C_DEVICE=$((0x50 << 1))
 
 axi()
 {
     local addr=$(($1))
-    if [[ ! "$1" =~ ^[0] ]] && [ $addr -eq 0 ]; then
+    if [[ ! "$1" =~ ^0 ]] && [ "$addr" -eq 0 ]; then
         echo ">>>> UNKNOWN FPGA REGISTER $1 <<<<"
-        return
+        return 1
     fi
-
-    pcireg $addr $2 $3 $4 $5 $6 $7 $8 $9
+    pcireg $addr "${@:2}"
 }
 
 get()
 {
     local addr=$(($1))
-    if [[ ! "$1" =~ ^[0] ]] && [ $addr -eq 0 ]; then
+    if [[ ! "$1" =~ ^0 ]] && [ "$addr" -eq 0 ]; then
         echo ">>>> UNKNOWN FPGA REGISTER $1 <<<<"
-        return
+        return 1
     fi
-
-    pcireg -dec $addr $2 $3    
+    pcireg -dec $addr "${@:2}"
 }
 
 
-#================================================================
-# This initializes the AXI_IIC core.   Do this at least once
-# after powerup
-#================================================================
-reset_core()
+eewrite()
 {
-    # Reset the AXI-IIC IP core
-    axi IIC_SOFTR 0x0A
+    local address=$(($1))
+    local word=$(($2))
 
-    # Set the RX FIFO to the maximum size
-    axi IIC_RX_FIFO_PIRQ 0x0F
+    local WRITE_BIG_ENDIAN=3
 
-    # Clear the TXFIFO
-    axi IIC_CR $CR_TXFIFO_RESET
+    if [ $(get EEPROM_IDLE) -eq 0 ]; then
+        echo "Bus is busy during eewrite!"
+        return
+    fi
 
-    # Disable the IIC engine
-    axi IIC_CR 0
+    axi EEPROM_ADDRESS $1
+    axi EEPROM_WDATA   $2
+    axi EEPROM_CMD     $WRITE_BIG_ENDIAN
 
-    # Wait for BB=0 and for TXFIFO and RXFIFO to be empty
-    while [ $(get IIC_SR) -ne $((0xC0)) ]; do
+
+    # Wait for the command to complete
+    while [ $(get EEPROM_IDLE) -eq 0 ]; do
         sleep .001
     done
-}
-#================================================================
 
-
-#================================================================
-# You may read up to 8 bytes at a time
-#================================================================
-read_bytes()
-{
-    local sr
-    local byte
-    local byte_count=$1
-    local address=$2
-
-    # Fetch the MSB of the EEPROM address
-    local msb=$((address >> 8))
-
-    # Bit 1 of 8-bit I2C address is the MSB of the EEPROM address
-    local i2c_addr=$(( I2C_DEVICE | (msb << 1) ))
-
-    # Disable the IIC engine
-    axi IIC_CR 0
-
-    # Queue the I2C device address 
-    axi IIC_TX_FIFO $((I2C_START | i2c_addr | I2C_WR))
-
-    # Queue the lower 8 bits of the EEPROM address 
-    axi IIC_TX_FIFO $((address & 0xFF))
-
-    # Queue a "Start Read"
-    axi IIC_TX_FIFO $((I2C_START | i2c_addr | I2C_RD))
-
-    # We're going to read $byte_count bytes
-    axi IIC_TX_FIFO $((I2C_STOP | $byte_count))
-
-    # Clear the interrupt status register
-    axi IIC_ISR $(get IIC_ISR)
-
-    # Start the read operation
-    axi IIC_CR $CR_ENABLE
-
-    # Loop through each byte we want to read
-    for ((i=0; i<$byte_count; i++)); do
-
-        # Wait for the status register to tell us there's a byte in the RX FIFO
-        while :; do
-            sr=$(get IIC_SR)
-            test $((sr & 0x40)) -eq 0 && break
-
-            # If bit 2 of IIC_ISR is on, the EEPROM isn't responding
-            sr=$(get IIC_ISR)
-            if [ $((sr & 2)) -ne 0 ]; then
-                printf "Transmit error during read_bytes (0x%02X)\n" $sr
-                return
-            fi
-        done
-
-        # Fetch the byte from the RX FIFO
-        byte=$(( $(get IIC_RX_FIFO) & 0xFF ))
-        
-        # Display the byte we just read from the EEPROM
-        printf "0x%02X\n" $byte
-    done
-
-    # Check to ensure the command 
-    sr=$(get IIC_SR)
-    if [ $((sr & 4)) -ne 0 ]; then
-        printf "Bit 2 (BB) of IIC_SR should be 0! (0x%02X)\n" $sr
-        return
-    fi
-}
-#================================================================
-
-
-
-#================================================================
-# Here we writes bytes the EEPROM.   This script writes bytes
-# starting at the right-most byte in $data, though that is 
-# entirely arbitrary
-#
-# You may write up to 8 bytes at a time
-#================================================================
-write_bytes()
-{
-    local byte_count=$1
-    local address=$2
-    local data=$3
-
-    # This is the index of the last data byte
-    local last_idx=$((byte_count - 1))
-
-    # Fetch the MSB of the EEPROM address
-    local msb=$((address >> 8))
-
-    # Bit 1 of 8-bit I2C address is the MSB of the EEPROM address
-    local i2c_addr=$(( I2C_DEVICE | (msb << 1) ))
-
-    # Disable the IIC engine
-    axi IIC_CR 0
-
-    # Queue the I2C device address 
-    axi IIC_TX_FIFO $((I2C_START | i2c_addr | I2C_WR))
-
-    # Queue the lower 8 bits of the EEPROM address 
-    axi IIC_TX_FIFO $((address & 0xFF))
-
-    # Loop through each byte we want to write
-    for ((i=0; i<$byte_count; i++)); do
-
-        # Extract the byte we want to write
-        local byte=$(( data & 0xFF ))
-
-        # If it's the last byte, add an I2C STOP
-        test $i -eq $last_idx && byte=$((byte | I2C_STOP))
-
-        # Push the next byte into the TX_FIFO
-        axi IIC_TX_FIFO $byte
-
-        # Shift to obtain the next byte of data we'll write
-        data=$((data >> 8))
-    done
-
-    # Clear the interrupt status register
-    axi IIC_ISR $(get IIC_ISR)
-
-    # Start the write operation
-    axi IIC_CR $CR_ENABLE
-
-    # Wait for BB in IIC_SR to clear to 0
-    while :; do
-        local sr=$(get IIC_SR)
-        test $((sr & 4)) -eq 0 && break;
-        printf "sr = 0x%04X\n" $sr
-    done
-
-    # EEPROM writes take about 5ms
-    sleep .005
-
-    # Check to see if there was a transmit error
-    sr=$(get IIC_ISR)
-    if [ $((sr & 2)) -ne 0 ]; then
-        printf "Transmit error during write_bytes (0x%02X)\n" $sr
+    local error=$(get EEPROM_ERROR)
+    if [ $error -ne 0 ]; then
+        echo "Error $error during eewrite"
         return
     fi
 
 }
-#================================================================
 
 
-test_eeprom()
+eeread()
 {
-    reset_core
+    local address=$(($1))
 
-    write_bytes 4 0x000 0xFFFFFFFF
-    write_bytes 4 0x100 0xFFFFFFFF
+    local READ_BIG_ENDIAN=2
 
-    echo "These should all be 0xFF"
-    read_bytes  4 0x000
-    read_bytes  4 0x100
-    echo
+    if [ $(get EEPROM_IDLE) -eq 0 ]; then
+        echo "Bus is busy during eewrite!"
+        return
+    fi
 
-    echo "writing"
-    write_bytes 4 0x000 0x44332211
-    write_bytes 4 0x100 0xAABBCCDD
-    
-    echo "reading - Should be 0x11 0x22 0x33 0x44"
-    read_bytes 4 0x000
-    echo
+    axi EEPROM_ADDRESS $1
+    axi EEPROM_CMD     $READ_BIG_ENDIAN
 
-    echo "reading - Should be 0xDD 0xCC 0xBB 0xAA"
-    read_bytes 4 0x100
+
+    # Wait for the command to complete
+    while [ $(get EEPROM_IDLE) -eq 0 ]; do
+        sleep .001
+    done
+
+    local error=$(get EEPROM_ERROR)
+    if [ $error -ne 0 ]; then
+        echo "Error $error during eewrite"
+        return
+    fi
+
+    axi EEPROM_RDATA
+
 }
-
-
 

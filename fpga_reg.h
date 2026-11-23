@@ -1027,6 +1027,70 @@
 
 
 //
+// Register:    EEPROM_ADDRESS
+// Size:        32-bits
+// Type:        Read/Write
+// Description: The 9-bit EEPROM address to read/write.
+//              The lower two bits will be forced to zero in order to
+//              enforce 4-byte boundaries.
+//
+#define EEPROM_ADDRESS                                               0x0000000000001b00ULL
+
+
+//
+// Register:    EEPROM_WDATA
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Four bytes of data to be written to EEPROM
+//
+#define EEPROM_WDATA                                                 0x0000000000001b04ULL
+
+
+//
+// Register:    EEPROM_CMD
+// Size:        32-bits
+// Type:        Read/Write
+// Description: EEPROM command:
+//              >   0 = Read from EEPROM, return little-endian data
+//              >   1 = Write  to EEPROM, using little-endian data
+//              >   2 = Read from EEPROM, return big-endian data
+//              >   3 = Write  to EEPROM, using big-endian data
+//              >
+//              >  EEPROM_IDLE must be high before you write to EEPROM_CMD!
+//
+#define EEPROM_CMD                                                   0x0000000000001b08ULL
+
+
+//
+// Register:    EEPROM_RDATA
+// Size:        32-bits
+// Type:        Read only
+// Description: Four bytes of data that were read from EEPROM
+//
+#define EEPROM_RDATA                                                 0x0000000000001b0cULL
+
+
+//
+// Register:    EEPROM_IDLE
+// Size:        32-bits
+// Type:        Read only
+// Description: If this is 1, the most recent read/write command is complete
+//
+#define EEPROM_IDLE                                                  0x0000000000001b10ULL
+
+
+//
+// Register:    EEPROM_ERROR
+// Size:        32-bits
+// Type:        Read only
+// Description: Once a read/write command completes, this reports any errors
+//              Non-zero means an error occurred
+//              0 = OK, 1 = arbitration lost, 2 = NACK received, 3 = timeout
+//
+#define EEPROM_ERROR                                                 0x0000000000001b14ULL
+
+
+//
 // Register:    CHIP_REF_CLOCK
 // Size:        32-bits
 // Type:        Read only
@@ -1085,70 +1149,6 @@
 // Description: The measured value of the chip interface clock, in Hz
 //
 #define CHIP_FREQ_OUT                                                0x000000000000900cULL
-
-
-//
-// Register:    EEPROM_ADDRESS
-// Size:        32-bits
-// Type:        Read/Write
-// Description: The 9-bit EEPROM address to read/write.
-//              The lower two bits will be forced to zero in order to
-//              enforce 4-byte boundaries.
-//
-#define EEPROM_ADDRESS                                               0x0000000000010000ULL
-
-
-//
-// Register:    EEPROM_WDATA
-// Size:        32-bits
-// Type:        Read/Write
-// Description: Four bytes of data to be written to EEPROM
-//
-#define EEPROM_WDATA                                                 0x0000000000010004ULL
-
-
-//
-// Register:    EEPROM_CMD
-// Size:        32-bits
-// Type:        Read/Write
-// Description: EEPROM command:
-//              >   0 = Read from EEPROM, return little-endian data
-//              >   1 = Write  to EEPROM, using little-endian data
-//              >   2 = Read from EEPROM, return big-endian data
-//              >   3 = Write  to EEPROM, using big-endian data
-//              >
-//              >  EEPROM_IDLE must be high before you write to EEPROM_CMD!
-//
-#define EEPROM_CMD                                                   0x0000000000010008ULL
-
-
-//
-// Register:    EEPROM_RDATA
-// Size:        32-bits
-// Type:        Read only
-// Description: Four bytes of data that were read from EEPROM
-//
-#define EEPROM_RDATA                                                 0x000000000001000cULL
-
-
-//
-// Register:    EEPROM_IDLE
-// Size:        32-bits
-// Type:        Read only
-// Description: If this is 1, the most recent read/write command is complete
-//
-#define EEPROM_IDLE                                                  0x0000000000010010ULL
-
-
-//
-// Register:    EEPROM_ERROR
-// Size:        32-bits
-// Type:        Read only
-// Description: Once a read/write command completes, this reports any errors
-//              Non-zero means an error occurred
-//              0 = OK, 1 = arbitration lost, 2 = NACK received, 3 = timeout
-//
-#define EEPROM_ERROR                                                 0x0000000000010014ULL
 
 
 
