@@ -278,10 +278,27 @@
 // Register:    CHIP_POWER_CTL
 // Size:        32-bits
 // Type:        Read/Write
-// Description: Turn chip power on or off
-//              1 to turn power on, 0 to turn power off
+// Description: Controls chip power rails and level shifter.
+//              For all fields 1=on and 0=off
+//
+// Fields:
+//     NAME                           WID   POS TYPE RESET       DESCRIPTION
+//     power_ctl                      1       0 RW   0           Automatic power on/off
+//     manual                         1       1 RW   0           Disable auto and enables bits 2 thru 6
+//     vddio                          1       2 RW   0           VDDIO power rail
+//     vdd                            1       3 RW   0           VDD power rail
+//     vddlvds                        1       4 RW   0           VDDLVDS power rail
+//     vdda                           1       5 RW   0           VDDA power rail
+//     levelshift                     1       6 RW   0           Level shifter
 //
 #define CHIP_POWER_CTL                                               0x0000000000001200ULL
+#define CHIP_POWER_CTL_power_ctl                                     0x0100000000001200ULL
+#define CHIP_POWER_CTL_manual                                        0x0101000000001200ULL
+#define CHIP_POWER_CTL_vddio                                         0x0102000000001200ULL
+#define CHIP_POWER_CTL_vdd                                           0x0103000000001200ULL
+#define CHIP_POWER_CTL_vddlvds                                       0x0104000000001200ULL
+#define CHIP_POWER_CTL_vdda                                          0x0105000000001200ULL
+#define CHIP_POWER_CTL_levelshift                                    0x0106000000001200ULL
 
 
 //
@@ -291,7 +308,7 @@
 // Description: Sensor chip power on state
 //              1 = The sensor chip is on
 //              0 = The sensor chip is off
-//              After turning power on or off, it may take as moment
+//              After turning power on or off, it may take a moment
 //              before that is reflected in this register
 //
 #define CHIP_POWER_STATE                                             0x0000000000001204ULL
@@ -306,6 +323,40 @@
 //              0 = The sensor chip reset is released
 //
 #define CHIP_RESET                                                   0x0000000000001208ULL
+
+
+//
+// Register:    CHIP_DETECT_CTL
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Determines whether the chip-detect and clamp are ignored
+//
+// Fields:
+//     NAME                           WID   POS TYPE RESET       DESCRIPTION
+//     ignore_clamp                   1       0 RW   0           1=Ignore clamp, 0=Open clamp cuts power
+//     ignore_chip                    1       1 RW   0           1=Ignore chip,  0=Missing chip cuts power
+//
+#define CHIP_DETECT_CTL                                              0x000000000000120cULL
+#define CHIP_DETECT_CTL_ignore_clamp                                 0x010000000000120cULL
+#define CHIP_DETECT_CTL_ignore_chip                                  0x010100000000120cULL
+
+
+//
+// Register:    CHIP_DETECT
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Reports clamp state
+//
+// Fields:
+//     NAME                           WID   POS TYPE RESET       DESCRIPTION
+//     clamp_state                    1       0 RO   N/A         1=Open, 0=Closed
+//     clamp_opened                   1       1 W1C  0           1 = The clamp was opened, write 1 to clear
+//     chip_absent                    1       2 RO   N/A         1=No chip, 0=Chip present
+//
+#define CHIP_DETECT                                                  0x0000000000001210ULL
+#define CHIP_DETECT_clamp_state                                      0x0100000000001210ULL
+#define CHIP_DETECT_clamp_opened                                     0x0101000000001210ULL
+#define CHIP_DETECT_chip_absent                                      0x0102000000001210ULL
 
 
 //

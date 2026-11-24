@@ -43,10 +43,11 @@ axi REG_SELECT_HSI $bus_type
 test $force_smem -eq 1 && axi REG_FORCE_SMEM 1
 
 # Make sure the chip is powered on!
-if [ $(get REG_CHIP_POWER_STATE) -ne 1 ]; then
+if [ $(get CHIP_POWER_STATE) -ne 1 ]; then
     echo "Turning on the sensor chip"
-    axi REG_CHIP_POWER_CTL 1
-    while [ $(get REG_CHIP_POWER_STATE) -eq 0 ]; do
+    axi CHIP_DETECT_CTL 3
+    axi CHIP_POWER_CTL  1
+    while [ $(get CHIP_POWER_STATE) -eq 0 ]; do
         sleep 1
     done
 fi

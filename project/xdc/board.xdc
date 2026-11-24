@@ -108,7 +108,11 @@ set_property -dict {PACKAGE_PIN B9    IOSTANDARD LVCMOS18} [get_ports CHIP_VDDIO
 set_property -dict {PACKAGE_PIN B10   IOSTANDARD LVCMOS18} [get_ports CHIP_VDDA   ];  # IO Bank 91 
 set_property -dict {PACKAGE_PIN B11   IOSTANDARD LVCMOS18} [get_ports CHIP_VDDLVDS];  # IO Bank 91 
 set_property -dict {PACKAGE_PIN A18   IOSTANDARD LVCMOS18} [get_ports CHIP_VDD    ];  # IO Bank 71
+set_property -dict {PACKAGE_PIN AK17  IOSTANDARD LVCMOS18} [get_ports CHIP_CLAMP  ];  # IO Bank 65
+set_property -dict {PACKAGE_PIN F26   IOSTANDARD LVCMOS18} [get_ports CHIP_DETECT ];  # IO Bank 69 
 #set_property -dict {PACKAGE_PIN B30   IOSTANDARD LVCMOS18           } [get_ports CHIP_DETECT_8M];  # IO Bank 71
+
+
 
 
 
