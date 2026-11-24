@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x461CF2B8DD2969B4",
+      "boundary_crc": "0xD4183D6AA6067ED8",
       "device": "xcku15p-ffve1517-3-e",
       "gen_directory": "../../../../project.gen/sources_1/bd/top_level",
       "name": "top_level",
@@ -650,6 +650,9 @@
       },
       "CHIP_DETECT": {
         "direction": "I"
+      },
+      "OTP_ENAB": {
+        "direction": "O"
       }
     },
     "components": {
@@ -7138,6 +7141,9 @@
           },
           "CHIP_DETECT": {
             "direction": "I"
+          },
+          "OTP_ENAB": {
+            "direction": "O"
           }
         },
         "components": {
@@ -8541,6 +8547,9 @@
               },
               "pcb_fan_tach": {
                 "direction": "I"
+              },
+              "otp_enable": {
+                "direction": "O"
               }
             },
             "components": {
@@ -8568,10 +8577,6 @@
                       "PROTOCOL": {
                         "value": "AXI4LITE",
                         "value_src": "constant"
-                      },
-                      "FREQ_HZ": {
-                        "value": "250000000",
-                        "value_src": "user_prop"
                       },
                       "ID_WIDTH": {
                         "value": "0",
@@ -8656,26 +8661,6 @@
                       "MAX_BURST_LENGTH": {
                         "value": "1",
                         "value_src": "auto"
-                      },
-                      "CLK_DOMAIN": {
-                        "value": "top_level_xdma_0_0_axi_aclk",
-                        "value_src": "default_prop"
-                      },
-                      "NUM_READ_THREADS": {
-                        "value": "1",
-                        "value_src": "user_prop"
-                      },
-                      "NUM_WRITE_THREADS": {
-                        "value": "1",
-                        "value_src": "user_prop"
-                      },
-                      "RUSER_BITS_PER_BYTE": {
-                        "value": "0",
-                        "value_src": "user_prop"
-                      },
-                      "WUSER_BITS_PER_BYTE": {
-                        "value": "0",
-                        "value_src": "user_prop"
                       }
                     },
                     "memory_map_ref": "S_AXI",
@@ -8789,14 +8774,6 @@
                       "ASSOCIATED_RESET": {
                         "value": "resetn",
                         "value_src": "constant"
-                      },
-                      "FREQ_HZ": {
-                        "value": "250000000",
-                        "value_src": "user_prop"
-                      },
-                      "CLK_DOMAIN": {
-                        "value": "top_level_xdma_0_0_axi_aclk",
-                        "value_src": "default_prop"
                       }
                     }
                   },
@@ -8819,6 +8796,9 @@
                     "direction": "I",
                     "left": "15",
                     "right": "0"
+                  },
+                  "otp_enable": {
+                    "direction": "O"
                   }
                 }
               },
@@ -8913,15 +8893,21 @@
               "clk_1": {
                 "ports": [
                   "clk",
-                  "misc_ctl/clk",
                   "fpga_fan_tach/clk",
-                  "pcb_fan_tach/clk"
+                  "pcb_fan_tach/clk",
+                  "misc_ctl/clk"
                 ]
               },
               "fpga_fan_tach_tach_count": {
                 "ports": [
                   "fpga_fan_tach/tach_count",
                   "misc_ctl/fpga_fan_tach"
+                ]
+              },
+              "misc_ctl_otp_enable": {
+                "ports": [
+                  "misc_ctl/otp_enable",
+                  "otp_enable"
                 ]
               },
               "pcb_fan_tach_1": {
@@ -11921,6 +11907,12 @@
               "C1_1"
             ]
           },
+          "misc_otp_enable": {
+            "ports": [
+              "misc/otp_enable",
+              "OTP_ENAB"
+            ]
+          },
           "qsfp_pins_qsfp_lp": {
             "ports": [
               "qsfp_pins/qsfp_lp",
@@ -13482,6 +13474,12 @@
         "ports": [
           "misc/LVL_TRSL_OE_N",
           "LVL_TRSL_OE_N"
+        ]
+      },
+      "misc_OTP_ENAB": {
+        "ports": [
+          "misc/OTP_ENAB",
+          "OTP_ENAB"
         ]
       },
       "misc_UCI_ADC_CSN": {

@@ -1066,6 +1066,15 @@
 
 
 //
+// Register:    REG_OTP_ENABLE
+// Size:        32-bits
+// Type:        Read/Write
+// Description: Enable or disable the sensor module's OTP programming voltage
+//
+#define REG_OTP_ENABLE                                               0x0000000000001908ULL
+
+
+//
 // Register:    AUX_ADC
 // Size:        32-bits
 // Type:        Read only

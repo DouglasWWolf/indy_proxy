@@ -113,8 +113,11 @@ set_property -dict {PACKAGE_PIN F26   IOSTANDARD LVCMOS18} [get_ports CHIP_DETEC
 #set_property -dict {PACKAGE_PIN B30   IOSTANDARD LVCMOS18           } [get_ports CHIP_DETECT_8M];  # IO Bank 71
 
 
-
-
+#
+# Controls the sensor module's OTP programming voltages 
+#
+set_property -dict {PACKAGE_PIN AP14  IOSTANDARD LVCMOS18} [get_ports OTP_ENABs];
+  
 
 #
 #  This enables a level translator for SPI pins on the sensor-chip (active low)

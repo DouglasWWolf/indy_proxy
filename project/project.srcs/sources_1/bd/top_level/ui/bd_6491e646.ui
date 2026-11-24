@@ -29,12 +29,13 @@ preplace port port-id_DIG_ADC_MISO -pg 1 -lvl 6 -x 1240 -y 850 -defaultsOSRD -ri
 preplace port port-id_DIG_ADC_SCK -pg 1 -lvl 6 -x 1240 -y 810 -defaultsOSRD
 preplace port port-id_DIG_ADC_MOSI -pg 1 -lvl 6 -x 1240 -y 830 -defaultsOSRD
 preplace port port-id_FPGA_FAN_TACH -pg 1 -lvl 6 -x 1240 -y 960 -defaultsOSRD -right
-preplace port port-id_PCB_FAN_TACH -pg 1 -lvl 6 -x 1240 -y 980 -defaultsOSRD -right
+preplace port port-id_PCB_FAN_TACH -pg 1 -lvl 6 -x 1240 -y 1000 -defaultsOSRD -right
 preplace port port-id_AUX_ADC_SCK -pg 1 -lvl 6 -x 1240 -y 160 -defaultsOSRD
 preplace port port-id_AUX_ADC_MOSI -pg 1 -lvl 6 -x 1240 -y 180 -defaultsOSRD
 preplace port port-id_AUX_ADC_MISO -pg 1 -lvl 6 -x 1240 -y 200 -defaultsOSRD -right
 preplace port port-id_CHIP_CLAMP -pg 1 -lvl 6 -x 1240 -y 310 -defaultsOSRD -right
 preplace port port-id_CHIP_DETECT -pg 1 -lvl 6 -x 1240 -y 330 -defaultsOSRD -right
+preplace port port-id_OTP_ENAB -pg 1 -lvl 6 -x 1240 -y 980 -defaultsOSRD
 preplace portBus C1_0 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD -left
 preplace portBus C1_1 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD -left
 preplace portBus qsfp_rst_l -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD -left
@@ -49,14 +50,14 @@ preplace inst uci_adc_bank -pg 1 -lvl 5 -x 1070 -y 1070 -defaultsOSRD -pinDir S_
 preplace inst chip_power_ctl -pg 1 -lvl 5 -x 1070 -y 290 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L -pinDir async_clamp right -pinY async_clamp 20R -pinDir async_chip_detect right -pinY async_chip_detect 40R -pinDir chip_vddio right -pinY chip_vddio 60R -pinDir chip_vdd right -pinY chip_vdd 80R -pinDir chip_vddlvds right -pinY chip_vddlvds 100R -pinDir chip_vdda right -pinY chip_vdda 120R -pinDir chip_reset_n right -pinY chip_reset_n 140R -pinDir lvl_trsl_oe_n right -pinY lvl_trsl_oe_n 160R
 preplace inst smartconnect -pg 1 -lvl 4 -x 760 -y 160 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 62 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 162 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 102 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 122 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 142 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 42 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 82 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 20L -pinDir M00_AXI right -pinY M00_AXI 150R -pinDir M01_AXI right -pinY M01_AXI 930R -pinDir M02_AXI right -pinY M02_AXI 520R -pinDir M03_AXI right -pinY M03_AXI 670R -pinDir M04_AXI right -pinY M04_AXI 800R -pinDir M05_AXI right -pinY M05_AXI 20R -pinDir M06_AXI right -pinY M06_AXI 390R -pinDir aclk left -pinY aclk 40L -pinDir aresetn left -pinY aresetn 60L
 preplace inst dig_adc_bank -pg 1 -lvl 5 -x 1070 -y 790 -defaultsOSRD -pinDir S_AXI_CTL left -pinY S_AXI_CTL 40L -pinDir clk left -pinY clk 60L -pinDir resetn left -pinY resetn 80L -pinDir ADC_SCK right -pinY ADC_SCK 20R -pinDir ADC_MOSI right -pinY ADC_MOSI 40R -pinDir ADC_MISO right -pinY ADC_MISO 60R -pinBusDir ADC_CSN right -pinBusY ADC_CSN 80R
-preplace inst misc -pg 1 -lvl 5 -x 1070 -y 940 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L -pinDir fpga_fan_tach right -pinY fpga_fan_tach 20R -pinDir pcb_fan_tach right -pinY pcb_fan_tach 40R
+preplace inst misc -pg 1 -lvl 5 -x 1070 -y 940 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 24 23} -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L -pinDir fpga_fan_tach right -pinY fpga_fan_tach 20R -pinDir pcb_fan_tach right -pinY pcb_fan_tach 60R -pinDir otp_enable right -pinY otp_enable 40R
 preplace inst aux_adc_bank -pg 1 -lvl 5 -x 1070 -y 140 -defaultsOSRD -pinDir S_AXI_CTL left -pinY S_AXI_CTL 40L -pinDir clk left -pinY clk 60L -pinDir resetn left -pinY resetn 80L -pinDir ADC_SCK right -pinY ADC_SCK 20R -pinDir ADC_MOSI right -pinY ADC_MOSI 40R -pinDir ADC_MISO right -pinY ADC_MISO 60R -pinBusDir ADC_CSN right -pinBusY ADC_CSN 80R
 preplace inst eeprom -pg 1 -lvl 5 -x 1070 -y 660 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 20L -pinDir EEPROM right -pinY EEPROM 20R -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L
 preplace inst TEC -pg 1 -lvl 5 -x 1070 -y 530 -defaultsOSRD -pinDir NCT72D_0 right -pinY NCT72D_0 20R -pinDir NCT72D_1 right -pinY NCT72D_1 40R -pinDir S_AXI left -pinY S_AXI 20L -pinDir clk left -pinY clk 40L -pinDir resetn left -pinY resetn 60L
 preplace netloc AUX_ADC_MISO_1 1 5 1 NJ 200
 preplace netloc DIG_ADC_MISO_1 1 5 1 NJ 850
 preplace netloc FPGA_FAN_TACH_1 1 5 1 NJ 960
-preplace netloc PCB_FAN_TACH_1 1 5 1 NJ 980
+preplace netloc PCB_FAN_TACH_1 1 5 1 NJ 1000
 preplace netloc UCI_ADC_MISO_1 1 5 1 NJ 1150
 preplace netloc adc_bank1_DIG_ADC_CSN 1 5 1 NJ 870
 preplace netloc adc_bank1_DIG_ADC_MOSI 1 5 1 NJ 830
@@ -81,6 +82,7 @@ preplace netloc qsfp_pins_qsfp_rst_l 1 0 1 NJ 280
 preplace netloc resetn_1 1 0 5 NJ 220 NJ 220 NJ 220 620 120 900
 preplace netloc CLAMPN_1 1 5 1 NJ 310
 preplace netloc CHIP_DETECT_1 1 5 1 NJ 330
+preplace netloc misc_otp_enable 1 5 1 N 980
 preplace netloc S00_AXI_1 1 0 4 NJ 180 NJ 180 NJ 180 NJ
 preplace netloc S_AXI_1 1 4 1 N 960
 preplace netloc S_AXI_2 1 4 1 N 550
@@ -96,7 +98,7 @@ levelinfo -pg 1 0 130 330 510 760 1070 1240
 pagesize -pg 1 -db -bbox -sgen -160 0 1430 1200
 ",
    "No Loops_ScaleFactor":"1.0",
-   "No Loops_TopLeft":"611,-59",
+   "No Loops_TopLeft":"600,591",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
 preplace inst framegen_ctl_0 -pg 1 -lvl 1 -x 120 -y 80 -defaultsOSRD

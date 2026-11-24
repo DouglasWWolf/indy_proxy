@@ -22,6 +22,9 @@ module misc_ctl # (parameter AW=8)
     // Tachometer for PCB fan
     input[15:0] pcb_fan_tach,
 
+    // Controls sensor-module's OTP programming voltage
+    output reg otp_enable,
+
     //================== This is an AXI4-Lite slave interface ==================
         
     // "Specify write address"              -- Master --    -- Slave --
@@ -68,6 +71,11 @@ localparam REG_FPGA_FAN  = 0;
     @rtype    ro
 */
 localparam REG_PCB_FAN   = 1;
+
+/*
+    @register Enable or disable the sensor module's OTP programming voltage
+*/
+localparam REG_OTP_ENABLE = 2;
 //==========================================================================
 
 
@@ -112,9 +120,11 @@ always @(posedge clk) begin
     // If we're in reset, initialize important registers
     if (resetn == 0) begin
         ashi_write_state  <= 0;
-
+        otp_enable        <= 0;
+    end
+    
     // Otherwise, we're not in reset...
-    end else case (ashi_write_state)
+    else case (ashi_write_state)
         
         // If an AXI write-request has occured...
         0:  if (ashi_write) begin
@@ -125,6 +135,7 @@ always @(posedge clk) begin
                 // ashi_windex = index of register to be written
                 case (ashi_windx)
               
+                    REG_OTP_ENABLE: otp_enable <= ashi_wdata;
 
                     // Writes to any other register are a decode-error
                     default: ashi_wresp <= DECERR;
@@ -159,8 +170,9 @@ always @(posedge clk) begin
         case (ashi_rindx)
             
             // Allow a read from any valid register                
-            REG_FPGA_FAN:        ashi_rdata <= fpga_fan_tach;
-            REG_PCB_FAN:         ashi_rdata <= pcb_fan_tach;
+            REG_FPGA_FAN:   ashi_rdata <= fpga_fan_tach;
+            REG_PCB_FAN:    ashi_rdata <= pcb_fan_tach;
+            REG_OTP_ENABLE: ashi_rdata <= otp_enable;
 
             // Reads of any other register are a decode-error
             default: ashi_rresp <= DECERR;
